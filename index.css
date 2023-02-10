@@ -84,11 +84,11 @@ body{
     scroll-snap-type: y mandatory;
 }
 
-.home,.about-section,.github,.projects,.skills,.contact{
+.home-section,.about-section,.github,.projects,.skills,.contact{
     scroll-snap-align: start;
 }
 
-.home{
+.home-section{
     height: 100vh;
     width: 100%;
     background-image: url('https://images.unsplash.com/photo-1576693327994-dc249a092527?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=813&q=80');
@@ -97,11 +97,11 @@ body{
     display: flex;
     align-items: center;
 }
-.home>div{
+.home-section>div{
     width: 100%;
     text-align: center;
 }
-.home>div>img{
+.home-section>div>img{
     display: block;
     margin: auto;
     width: 15%;
@@ -109,12 +109,12 @@ body{
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.575);
 }
-.home h1{
+.home-section h1{
     font-size: 50px;
     line-height: 0.05em;
     color: white;
 }
-.home p{
+.home-section p{
     color: white;
 }
 .about-section{
@@ -512,12 +512,12 @@ body{
         scroll-snap-type: none;
     }
 
-    .home{
+    .home-section{
         background-size: cover;
         /* height: fit-content; */
     }
 
-    .home,.about-section,.github,.projects,.skills,.contact{
+    .home-section,.about-section,.github,.projects,.skills,.contact{
         height:70vh
     }
 
