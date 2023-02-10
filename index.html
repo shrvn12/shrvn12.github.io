@@ -20,7 +20,7 @@
     <div class="scrollarea">
         <div class="nav" id="nav-menu">
             <div>
-                <a href="#home" class="nav-link-home">
+                <a href="#home" class="nav-link.home">
                     <img src="./images/shravan_logo.png" alt="">
                 </a>
             </div>
@@ -29,7 +29,7 @@
             </div>
             <div>
                 <div>
-                    <a href="#about" class="nav-link-about">
+                    <a href="#about" class="nav-link.about">
                         <div>
                             <h3>ABOUT</h3>
                         </div>
@@ -82,9 +82,9 @@
             <div>
                 <img class="home-img" src="./images/profile.jpeg" alt="">
             </div>
-            <div>
+            <div id="detail">
                 <h3>DISCOVER</h3>
-                <h1>ABOUT ME</h1>
+                <h1 id="about.about.section">ABOUT ME</h1>
                 <p id="user-detail-intro">
                     Creative web developer, dedicated to
                     developing and optimizing interactive user
@@ -138,8 +138,8 @@
                         </p>
                     </div>
                 </div>
-                <a id="resume-link-2" href="Shravan_Resume.pdf" download >
-                        <button class="resumepage" id="resume-button-2">Download Resume</button>
+                <a id="resume-button-2" href="Shravan_Resume.pdf" download >
+                    <button class="resumepage" id="resume-link-2">Download Resume</button>
                 </a>
                 
             </div>
@@ -155,9 +155,9 @@
                         <img src="./images/octocat.gif" alt="">
                         <h2><a href="https://github.com/shrvn12" target="_blank">github.com/shrvn12</a></h2>
 
+                        <img id="github-stats-card"  alt="shrvn12's GitHub Stats" src="lude 'https://github-readme-stats.vercel.app/api?username=shrvn12" />
 
-
-                        <img id="github-stats-card"  alt="shrvn12's GitHub Stats" src="https://awesome-github-stats.azurewebsites.net/user-stats/shrvn12?cardType=github&theme=tokyonight&preferLogin=false" />
+                        <img alt="shrvn12's GitHub Stats" src="https://awesome-github-stats.azurewebsites.net/user-stats/shrvn12?cardType=github&theme=tokyonight&preferLogin=false" />
                     </div>
                     
                 </div>
@@ -168,8 +168,6 @@
                     <img class="profilesummary" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shrvn12&theme=github_dark" alt="">
 
                     <img class="react-activity-calendar" class="calendar" src="./images/calendar.png" alt="">
-
-                    <!-- <img id="github-stats-card"  alt="shrvn12's GitHub Stats" src="lude 'https://github-readme-stats.vercel.app/api?username=shrvn12" /> -->
                     
                 </div>
             </div>
@@ -203,7 +201,9 @@
                                 <button>Video</button>
                             </a>
 
-                            <a class="project-github-link" href="https://github.com/shrvn12/apathetic-airplane-7155" target="_blank"><button>GitHub</button></a>
+                            <a class="project-github-link" href="https://github.com/shrvn12/apathetic-airplane-7155" target="_blank">
+                                <button>GitHub</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -316,7 +316,7 @@
                 </div>
             <div class="skilldiv">
                     <div class="skills-card">
-                        <h1>Tech</h1>
+                        <h1 class="skills-card-name">Tech</h1>
                         <div class="techskills">
                             <div>
                                 <a class="skills-card-img" href="https://html.com/" target="_blank">

@@ -492,6 +492,10 @@ body{
     grid-column-end: 3;
 }
 
+#github-stats-card{
+    display: none;
+}
+
 @media all and (min-width:500px){
     .menu{
         display: none;
