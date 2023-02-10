@@ -91,9 +91,9 @@ body{
 .home-section{
     height: 100vh;
     width: 100%;
-    background-image: url('https://images.unsplash.com/photo-1576693327994-dc249a092527?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=813&q=80');
+    background-image: url('./images/aeroplanebg.jpeg');
     background-size: 100%;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     display: flex;
     align-items: center;
 }
@@ -123,7 +123,9 @@ body{
     background-color: rgb(22, 22, 22);
     display: flex;
     padding-top: 2%;
-    
+    background-image: url('./images/bg2.jpeg');
+    background-size: 100%;
+    background-repeat: repeat;
     /* font-size: 95%; */
 }
 .about-section>div:nth-child(1){
@@ -147,7 +149,8 @@ body{
     width: 80%;
     display: block;
     margin-left: auto;
-
+    background-color: rgba(255, 255, 255, 0.068);
+    border: 2px solid white;
 }
 .details{
     width: 100%;
@@ -181,6 +184,9 @@ body{
     padding-top: 5%;
     color: white;
     margin-bottom: 0px;
+    background-image: url('./images/bg2.jpeg');
+    background-size: 100%;
+    background-repeat: repeat;
     
 }
 .projects>div:nth-child(1){
@@ -201,6 +207,11 @@ body{
     height: 70vh;
     /* border: 1px solid white; */
     background-color: rgb(39, 39, 39);
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    transition: 0.25s;
+}
+.gallery>div:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 /* .gallery img{
     width: 100%;
@@ -218,11 +229,11 @@ body{
     display: block;
     margin: auto;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    transition: 1s;
+    transition: 0.25s;
 }
-/* .image img:hover{
-    width: 92%;
-} */
+.image img:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 .info{
     border: 1px solid transparent;
     height: 55%;
@@ -281,7 +292,9 @@ body{
     background-color: rgb(22, 22, 22);
     margin-top: 0%;
     padding-top: 5%;
-    
+    background-image: url('./images/bg5.jpg');
+    background-size: 100%;
+    background-repeat: repeat;
 }
 .skillset{
     margin: auto;
@@ -338,6 +351,10 @@ body{
     width: 100%;
     display: block;
     border-radius: 5px;
+    transition: 0.25s;
+}
+.skilldiv img:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .techskills{
     width: 90%;
@@ -358,7 +375,9 @@ body{
     width: 100%;
     background-color: rgb(22, 22, 22);
     padding-top: 5%;
-    
+    background-image: url('./images/contactbg.jpeg');
+    background-size: 100%;
+    background-repeat: repeat;
 }
 .message{
     color: white;
@@ -366,6 +385,10 @@ body{
     margin: auto;
     text-align: center;
     margin-top: 7%;
+}
+.message>p{
+    font-style: italic;
+    font-size: 80%;
 }
 .links{
     display: flex;
@@ -409,7 +432,9 @@ body{
     height: 100vh;
     background-color: rgb(22, 22, 22);
     padding-top: 5%;
-    
+    background-image: url('./images/bg3.jpeg');
+    background-size: 100%;
+    background-repeat: repeat;
 
 }
 /* .github img{
@@ -442,8 +467,14 @@ body{
     width: 100%;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    /* display: block;
-    margin: auto; */
+    border: 1px solid transparent;
+    display: block;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.github>div>div:nth-child(2)>img:hover{
+    border: 1px solid white;
 }
 
 .github>div>div:nth-child(1)>div:nth-child(1){
