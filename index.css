@@ -84,7 +84,7 @@ body{
     scroll-snap-type: y mandatory;
 }
 
-.home,.about,.github,.projects,.skills,.contact{
+.home,.about_section,.github,.projects,.skills,.contact{
     scroll-snap-align: start;
 }
 
@@ -117,7 +117,7 @@ body{
 .home p{
     color: white;
 }
-.about{
+.about_section{
     height: 100vh;
     width: 100%;
     background-color: rgb(22, 22, 22);
@@ -126,13 +126,13 @@ body{
     
     /* font-size: 95%; */
 }
-.about>div:nth-child(1){
+.about_section>div:nth-child(1){
     /* border: 1px solid; */
     width: 40%;
     display: flex;
     align-items: center;
 }
-.about>div:nth-child(2){
+.about_section>div:nth-child(2){
     /* border: 1px solid; */
     width: 50%;
     padding-top: 5%;
@@ -140,10 +140,10 @@ body{
     margin-left: 3%;
     line-height: 1.1em;
 }
-.about h3{
+.about_section h3{
     color: rgb(211, 43, 65);
 }
-.about img{
+.about_section img{
     width: 80%;
     display: block;
     margin-left: auto;
@@ -166,7 +166,7 @@ body{
     color: white;
     text-decoration: underline;
 }
-.about button{
+.about_section button{
     margin-top: 3%;
     height: 30px;
     border: 0px;
@@ -485,7 +485,7 @@ body{
     grid-column-start: 1;
     grid-column-end: 3;
 }
-.calendar{
+.react-activity-calendar{
     border-radius: 5px;
     border: 1px solid white;
     grid-column-start: 1;
@@ -513,7 +513,7 @@ body{
         /* height: fit-content; */
     }
 
-    .home,.about,.github,.projects,.skills,.contact{
+    .home,.about_section,.github,.projects,.skills,.contact{
         height:70vh
     }
 
@@ -559,4 +559,13 @@ body{
         flex-wrap: wrap;
     }
 
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(211, 43, 65);
+    border-radius: 2px;
 }

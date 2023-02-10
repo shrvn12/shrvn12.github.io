@@ -18,9 +18,9 @@
 </style>
 <body>
     <div class="scrollarea">
-        <div class="nav">
+        <div class="nav" id="nav-menu">
             <div>
-                <a href="#home">
+                <a href="#home" class="nav-link-home">
                     <img src="./images/shravan_logo.png" alt="">
                 </a>
             </div>
@@ -29,37 +29,38 @@
             </div>
             <div>
                 <div>
-                    <a href="#about" >
+                    <a href="#about" class="nav-link-about">
                         <div>
                             <h3>ABOUT</h3>
                         </div>
                     </a>
 
-                    <a href="#github">
+                    <a href="#github"  >
                         <div>
                             <h3>GITHUB</h3>
                         </div>
                     </a>
 
-                    <a href="#projects">
+                    <a href="#projects" class="nav-link-projects">
                         <div>
                             <h3>PROJECTS</h3>
                         </div>
                     </a>
 
-                    <a href="#skills">
+                    <a href="#skills" class="nav-link-skills">
                         <div>
                             <h3>SKILLS</h3>
                         </div>
                     </a>
                     
-                    <a href="#contact">
+                    <a href="#contact" class="nav-link-contact">
                         <div>
                             <h3>CONTACT</h3>
                         </div>
                     </a>
                 
-                    <a href="Shravan_Resume.pdf" download >
+                    <a class="nav-link-resume" id="resume-link-1"
+                    href="Shravan_Resume.pdf" download >
                         <div class="resumepage">
                             <h3>RESUME</h3>
                         </div>
@@ -77,14 +78,15 @@
             </div>
         </div>
 
-        <div class="about" id="about">
+        <div class="about_section" id="about">
             <div>
-                <img src="./images/profile.jpeg" alt="">
+                <img class="home-img" src="./images/profile.jpeg" alt="">
             </div>
             <div>
                 <h3>DISCOVER</h3>
                 <h1>ABOUT ME</h1>
-                <p>Creative web developer, dedicated to
+                <p id="user-detail-intro">
+                    Creative web developer, dedicated to
                     developing and optimizing interactive user
                     friendly and feature rich websites.
                     <br>
@@ -99,10 +101,11 @@
                     <br>
                     Able to effectively self-manage during
                     independent projects as well as
-                    collaborative in team setting.</p>
+                    collaborative in team setting.
+                </p>
                 <div class="details">
                     <div>
-                        <p>
+                        <p id="user-detail-name">
                             Name : Shravan
                         </p>
                         <p>
@@ -135,7 +138,7 @@
                         </p>
                     </div>
                 </div>
-                <a href="Shravan_Resume.pdf" download >
+                <a id="resume-link-2" href="Shravan_Resume.pdf" download >
                         <button class="resumepage">Download Resume</button>
                 </a>
                 
@@ -151,17 +154,17 @@
                     <div>
                         <img src="./images/octocat.gif" alt="">
                         <h2><a href="https://github.com/shrvn12" target="_blank">github.com/shrvn12</a></h2>
-                        <img  alt="shrvn12's GitHub Stats" src="https://awesome-github-stats.azurewebsites.net/user-stats/shrvn12?cardType=github&theme=tokyonight&preferLogin=false" />
+                        <img id="github-stats-card"  alt="shrvn12's GitHub Stats" src="https://awesome-github-stats.azurewebsites.net/user-stats/shrvn12?cardType=github&theme=tokyonight&preferLogin=false" />
                     </div>
                     
                 </div>
                 <div>
-                    <img src="https://camo.githubusercontent.com/b138b2b99c4b65f510b5925289fa9f214f6bea7fa7e80e68bad1635c6f2c3c84/68747470733a2f2f73747265616b2d73746174732e64656d6f6c61622e636f6d2f3f757365723d44656e766572436f64657231267468656d653d6461726b" alt="">
-                    <img src="https://camo.githubusercontent.com/d6446948cebf313864b771a6b2b273d3d6909fb742e646ca0c3c49c19e0bbfe2/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170692f746f702d6c616e67732f3f757365726e616d653d736872766e3132266c61796f75743d636f6d70616374" alt="">
+                    <img id="github-streak-stats" src="https://camo.githubusercontent.com/b138b2b99c4b65f510b5925289fa9f214f6bea7fa7e80e68bad1635c6f2c3c84/68747470733a2f2f73747265616b2d73746174732e64656d6f6c61622e636f6d2f3f757365723d44656e766572436f64657231267468656d653d6461726b" alt="">
+                    <img id="github-top-langs" src="https://camo.githubusercontent.com/d6446948cebf313864b771a6b2b273d3d6909fb742e646ca0c3c49c19e0bbfe2/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170692f746f702d6c616e67732f3f757365726e616d653d736872766e3132266c61796f75743d636f6d70616374" alt="">
 
                     <img class="profilesummary" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shrvn12&theme=github_dark" alt="">
 
-                    <img class="calendar" src="./images/calendar.png" alt="">
+                    <img class="react-activity-calendar" class="calendar" src="./images/calendar.png" alt="">
                     <!-- <img src="https://camo.githubusercontent.com/45e558744bf230ce51e4cf6a7c8ba6831d1c8802df63c68c2351bc5677fb79bd/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170693f757365726e616d653d736872766e313226636f756e745f707269766174653d747275652673686f775f69636f6e733d74727565" alt=""> -->
 
                 
@@ -176,37 +179,43 @@
                 <h1>My Projects</h1>
             </div>
             <div class="gallery">
-                <div>
+                <div class="project-card">
                     <div class="image">
                         <img src="./images/zeestore.jpeg" alt="">
                     </div>
                     <div class="info">
                         <div>
-                            <h3>Zee Store</h3>
-                            <p>Clone of <a href="https://www.zara.com" target="_blank">Zara.com</a> i'e an E-Commerce website, built using:</p>
-                            <ul>
+                            <h3 class="project-title">Zee Store</h3>
+                            <p class="project-description">Clone of <a href="https://www.zara.com" target="_blank">Zara.com</a> i'e an E-Commerce website, built using:</p>
+                            <ul class="project-tech-stack">
                                 <li>HTML</li>
                                 <li>CSS</li>
                                 <li>JavaScript</li>
                             </ul>
                         </div>
                         <div class="projectsbutton">
-                            <a href="https://aquamarine-mooncake-80841d.netlify.app/" target="_blank"><button>Live</button></a>
-                            <a href="https://drive.google.com/file/d/1xsPbNpu96tlxCZKRaSfvL0G9FIUc1-5v/view?usp=share_link" target="_blank"><button>Video</button></a>
-                            <a href="https://github.com/shrvn12/apathetic-airplane-7155" target="_blank"><button>GitHub</button></a>
+                            <a class="project-deployed-link" href="https://aquamarine-mooncake-80841d.netlify.app/" target="_blank">
+                                <button>Live</button>
+                            </a>
+
+                            <a href="https://drive.google.com/file/d/1xsPbNpu96tlxCZKRaSfvL0G9FIUc1-5v/view?usp=share_link" target="_blank">
+                                <button>Video</button>
+                            </a>
+
+                            <a class="project-github-link" href="https://github.com/shrvn12/apathetic-airplane-7155" target="_blank"><button>GitHub</button></a>
                         </div>
                     </div>
                 </div>
 
-                <div>
+                <div class="project-card">
                     <div class="image">
                         <img src="./images/saundarya.png" alt="">
                     </div>
                     <div class="info">
                         <div>
-                            <h3>Soundarya</h3>
-                            <p>Fully functional clone of <a href="https://www.bathandbodyworks.in/">Bath and body works</a>, Built collaboratively with a group of 5 members within a span of 7 days. built using:
-                                <ul>
+                            <h3 class="project-title">Soundarya</h3>
+                            <p class="project-description">Fully functional clone of <a href="https://www.bathandbodyworks.in/">Bath and body works</a>, Built collaboratively with a group of 5 members within a span of 7 days. built using:
+                                <ul class="project-tech-stack">
                                     <li>HTML</li>
                                     <li>CSS</li>
                                     <li>JavaScript</li>
@@ -214,25 +223,33 @@
                             </p>
                         </div>
                         <div class="projectsbutton">
-                            <a href="https://soundaryaa.netlify.app/" target="_blank"><button>Live</button></a>
-                            <a href="https://drive.google.com/file/d/1woZmoBbar_j0sV-TEwrty2U4qYbgmAam/view" target="_blank"><button>Video</button></a>
-                            <a href="https://github.com/Ajay84sia/unbecoming-ray-3277" target="_blank"><button>GitHub</button></a>
+                            <a class="project-deployed-link" href="https://soundaryaa.netlify.app/" target="_blank">
+                                <button>Live</button>
+                            </a>
+
+                            <a href="https://drive.google.com/file/d/1woZmoBbar_j0sV-TEwrty2U4qYbgmAam/view" target="_blank">
+                                <button>Video</button>
+                            </a>
+
+                            <a class="project-github-link" href="https://github.com/Ajay84sia/unbecoming-ray-3277" target="_blank">
+                                <button>GitHub</button>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div>
+                <div class="project-card">
                     <div class="image">
                         <img src="./images/Ajio.png" alt="">
                     </div>
                     <div class="info">
                         <div>
-                            <h3>StyleClub</h3>
-                            <p>
+                            <h3 class="project-title">StyleClub</h3>
+                            <p class="project-description">
                                 Clone of <a href="https://www.ajio.com/">Ajio</a> built individually within span of 5 days
                                 <br>
                                 Teck Stacks
-                                <ul>
+                                <ul class="project-tech-stack">
                                     <li>HTML</li>
                                     <li>CSS</li>
                                     <li>JavaScript</li>
@@ -241,24 +258,32 @@
                             </p>
                         </div>
                         <div class="projectsbutton">
-                            <a href="https://silly-mermaid-729aa5.netlify.app/" target="_blank"><button>Live</button></a>
-                            <a href="https://drive.google.com/file/d/1B9aroSwMWfZvXpoPP3BX93E_IxJFvhLI/view?usp=share_link" target="_blank"><button>Video</button></a>
-                            <a href="https://github.com/shrvn12/same-eye-4784" target="_blank"><button>GitHub</button></a>
+                            <a class="project-deployed-link" href="https://silly-mermaid-729aa5.netlify.app/" target="_blank">
+                                <button>Live</button>
+                            </a>
+
+                            <a href="https://drive.google.com/file/d/1B9aroSwMWfZvXpoPP3BX93E_IxJFvhLI/view?usp=share_link" target="_blank">
+                                <button>Video</button>
+                            </a>
+
+                            <a class="project-github-link" href="https://github.com/shrvn12/same-eye-4784" target="_blank">
+                                <button>GitHub</button>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div>
+                <div class="project-card">
                     <div class="image">
                         <img src="./images/mini-project.jpeg" alt="">
                     </div>
                     <div class="info">
                         <div>
-                            <h3>Node Mini Project</h3>
-                            <p>A simple mini project with fully functional deployed Backend.
+                            <h3 class="project-title">Node Mini Project</h3>
+                            <p class="project-description">A simple mini project with fully functional deployed Backend.
                                 <br>
                                 Tech Stacks:
-                                <ul>
+                                <ul class="project-tech-stack">
                                     <li>HTML</li>
                                     <li>CSS</li>
                                     <li>JavaScript</li>
@@ -267,9 +292,17 @@
                             </p>
                         </div>
                         <div class="projectsbutton">
-                            <a href="https://voluble-puffpuff-42cab6.netlify.app/" target="_blank"><button>Live</button></a>
-                            <a><button>Video</button></a>
-                            <a href="https://github.com/shrvn12/mini-project"><button>GitHub</button></a>
+                            <a class="project-deployed-link" href="https://voluble-puffpuff-42cab6.netlify.app/" target="_blank">
+                                <button>Live</button>
+                            </a>
+
+                            <a>
+                                <button>Video</button>
+                            </a>
+
+                            <a class="project-github-link" href="https://github.com/shrvn12/mini-project">
+                                <button>GitHub</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -278,10 +311,10 @@
 
         <div class="skills" id="skills">
                 <div class="skillset">
-                    <h1>My Skillset + Toolset</h1>
+                    <h1 class="skills-card-name">My Skillset + Toolset</h1>
                 </div>
             <div class="skilldiv">
-                    <div>
+                    <div class="skills-card">
                         <h1>Tech</h1>
                         <div class="techskills">
                             <div>
@@ -341,7 +374,7 @@
                         </div>
                         
                     </div>
-                    <div>
+                    <div class="skills-card">
                         <div class="content2">
                             <h1>
                                 1200+
@@ -363,8 +396,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div>
-                        <h1>Toolset</h1>
+                    <div class="skills-card">
+                        <h1 class="skills-card-name">Toolset</h1>
                         <div class="techskills">
                             <div>
                                 <a href="https://code.visualstudio.com/" target="_blank">
@@ -434,13 +467,13 @@
             <div class="links">
                 <div>
                     <div>
-                        <a href="https://www.linkedin.com/in/shravan-singh-489409246/" target="_blank">
+                        <a id="contact-linkedin"  href="https://www.linkedin.com/in/shravan-singh-489409246/" target="_blank">
                             <img id="linkedin" src="./images/linkedin_logo.png" alt="">
                         </a>
                     </div>
 
                     <div>
-                        <a href="https://github.com/shrvn12" target="_blank">
+                        <a id="contact-github" href="https://github.com/shrvn12" target="_blank">
                             <img src="./images/github-logo.png" alt="">  
                         </a>
                     </div>
@@ -461,8 +494,8 @@
 
             <div class="email">
                 <div>
-                    <p>Email : <a href="mailto:singhshravan1208@gmail.com">singhshravan1208@gmail.com</a></p>
-                    <p>Ph: <a href="tel:9311529750">9311529750</a></p>
+                    <p id="contact-email">Email : <a href="mailto:singhshravan1208@gmail.com">singhshravan1208@gmail.com</a></p>
+                    <p id="contact-phone" >Ph: <a href="tel:9311529750">9311529750</a></p>
                 </div>
             </div>
             
