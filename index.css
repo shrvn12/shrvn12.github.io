@@ -84,7 +84,7 @@ body{
     scroll-snap-type: y mandatory;
 }
 
-.home,.about_section,.github,.projects,.skills,.contact{
+.home,.about-section,.github,.projects,.skills,.contact{
     scroll-snap-align: start;
 }
 
@@ -117,7 +117,7 @@ body{
 .home p{
     color: white;
 }
-.about_section{
+.about-section{
     height: 100vh;
     width: 100%;
     background-color: rgb(22, 22, 22);
@@ -126,13 +126,13 @@ body{
     
     /* font-size: 95%; */
 }
-.about_section>div:nth-child(1){
+.about-section>div:nth-child(1){
     /* border: 1px solid; */
     width: 40%;
     display: flex;
     align-items: center;
 }
-.about_section>div:nth-child(2){
+.about-section>div:nth-child(2){
     /* border: 1px solid; */
     width: 50%;
     padding-top: 5%;
@@ -140,10 +140,10 @@ body{
     margin-left: 3%;
     line-height: 1.1em;
 }
-.about_section h3{
+.about-section h3{
     color: rgb(211, 43, 65);
 }
-.about_section img{
+.about-section img{
     width: 80%;
     display: block;
     margin-left: auto;
@@ -166,7 +166,7 @@ body{
     color: white;
     text-decoration: underline;
 }
-.about_section button{
+.about-section button{
     margin-top: 3%;
     height: 30px;
     border: 0px;
@@ -513,7 +513,7 @@ body{
         /* height: fit-content; */
     }
 
-    .home,.about_section,.github,.projects,.skills,.contact{
+    .home,.about-section,.github,.projects,.skills,.contact{
         height:70vh
     }
 
