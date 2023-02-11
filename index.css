@@ -589,9 +589,12 @@ body{
         height: 100vh;
     }
 
-    .github>div>div:nth-child(2)>img:nth-child(1){
-        display: block;
-        margin-left: 2%;
+    .github>div>div:nth-child(2){
+        margin-top: 10%;
+    }
+
+    .github>div>div:nth-child(2)>img:first-of-type{
+        width: 100%;
     }
 
     .github>div{
@@ -604,7 +607,7 @@ body{
         width: 100%;
         /* border: 1px solid white; */
         display: grid;
-        grid-template-columns: repeat(1,1fr);
+        grid-template-columns: repeat(2,1fr);
         gap: 5%;
     }
 

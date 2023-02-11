@@ -157,8 +157,11 @@
                     
                 </div>
                 <div>
-                    <!-- <img id="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com?user=shrvn12&theme=dark" alt=""> -->
+                    
+
                     <img id="github-top-langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shrvn12&layout=compact" alt="">
+
+                    <img id="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com?user=shrvn12&theme=dark" alt="">
 
                     <img class="profilesummary" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shrvn12&theme=github_dark" alt="">
 
@@ -551,7 +554,7 @@
     let divs = document.querySelectorAll(".scrollarea>div:not(.nav)")
     for(let elem of divs){
         elem.addEventListener("click",()=>{
-            if(window.innerWidth < 500){
+            if(window.innerWidth < 600){
                 for(let elem of anchors){
                     anchordiv.style.display = "none"
                 }
@@ -561,7 +564,7 @@
 
     for(let elem of anchors){
         elem.addEventListener("click",()=>{
-            if(window.innerWidth < 500){
+            if(window.innerWidth < 600){
                 anchordiv.style.display = "none";
             }
         })
