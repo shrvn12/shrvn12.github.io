@@ -82,6 +82,9 @@ body{
     overflow-y: scroll;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+    background-image: url('./images/bg9.jpg');
+    background-size: 100%;
+    background-repeat: repeat;
 }
 
 .home-section,.about-section,.github,.projects,.skills,.contact{
@@ -292,7 +295,7 @@ body{
     background-color: rgb(22, 22, 22);
     margin-top: 0%;
     padding-top: 5%;
-    background-image: url('./images/bg5.jpg');
+    background-image: url('./images/bg6.jpeg');
     background-size: 100%;
     background-repeat: repeat;
 }
@@ -313,7 +316,8 @@ body{
     /* border: 1px solid white; */
 }
 .skilldiv>div{
-    background-color: rgb(56, 56, 56);
+    /* background-color: rgb(56, 56, 56); */
+    background-color: rgba(255, 255, 255, 0.171);
     color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     height: 70vh;
@@ -322,7 +326,7 @@ body{
     /* border: 1px solid; */
 }
 .skilldiv>div:nth-child(2){
-    background-color: rgb(175, 8, 8);
+    background-color: rgba(255, 255, 255, 0.171);
     font-size: large;
     display: flex;
     align-items: center;
@@ -549,49 +553,172 @@ body{
     }
 
     .home-section,.about-section,.github,.projects,.skills,.contact{
-        height:70vh
+        height:60vh
+    }
+
+    .about-section,.github,.projects,.skills{
+        background-image: url('./images/bg9.jpg');
+        background-size: 100%;
+        background-repeat: repeat;
+    }
+
+    .home-section{
+        background-image: url('./images/bg11.jpg');
+        background-size: 100%;
+        background-repeat: repeat;
+    }
+
+    .about{
+        font-size: 90%;
+    }
+
+    .about-section{
+        height: 55vh;
+    }
+
+    .about-section>div:nth-child(1){
+        display: none;
+    }
+
+    .about-section>div:nth-child(2){
+        width: 90%;
+        margin: auto;
+    }
+
+    .github{
+        height: 100vh;
+    }
+
+    .github>div>div:nth-child(2)>img:nth-child(1){
+        display: block;
+        margin-left: 2%;
+    }
+
+    .github>div{
+        display: block;
+        width: 90%;
+        margin: auto;
+    }
+
+    .github>div>div:nth-child(2){
+        width: 100%;
+        /* border: 1px solid white; */
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 5%;
+    }
+
+    .github>div>div:nth-child(1){
+        width: 100%;
+    }
+
+    .gallery{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .gallery>div{
+        height: 44vh;
+    }
+
+    .image img{
+        width: 70%;
+    }
+
+    .image{
+        height: 50%;
+    }
+
+    .info{
+        height: 50%;
+    }
+
+    /* .info>div:nth-child(1){} */
+
+    .projects{
+        height: auto;
+        margin-bottom: 25%;
+        font-size: 90%;
+    }
+
+    .skilldiv{
+        grid-template-columns: repeat(1,1fr);
+        height: auto;
+    }
+
+    .skills{
+        height: auto;
+        margin-bottom: 25%;
+    }
+
+    .skilldiv>div{
+        height: 45vh;
+    }
+
+    .links>div{
+        width: 25%;
+    }
+
+    .contact{
+        font-size: 90%;
+    }
+
+    .scrollarea{
+        height: auto;
+        padding-bottom: 20%;
     }
 
     .menu{
         display: flex;
         margin-left: auto;
         /* margin-bottom: 5%; */
+    }
 
+    .menu img{
+        width: 100%;
     }
     .nav>div:nth-child(1){
         width: 50%;
-        border: 1px solid white;
+        /* border: 1px solid white; */
     }
 
     .nav>div:nth-child(2){
         width: 40%;
-        border: 1px solid yellow;
+        /* border: 1px solid yellow; */
         display: flex;
         align-items: center;
     }
     .nav>div:nth-child(3){
         position: absolute;
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
+        /* border: 1px solid red; */
         width: 90%;
+        margin: auto;
         margin-top: 15%;
-        text-align: right;
-        border: 1px solid white;
-        overflow: hidden;
-        transition: 1s;
+    }
+    .nav>div:nth-child(3)>div{
+        display: none;
+        /* border: 1px solid green; */
+        width: min-content;
+        margin-left: auto;
     }
     .nav>div:nth-child(3) a{
-        display: block;
-        text-align: right;
-        margin-left: auto;
-        background-color: gray;
+        margin: 0px;
+        line-height: 0em;
+    }
+
+    .nav>div:nth-child(3) a>div{
+        border: 1px solid white;
+    }
+
+    .nav h3{
+        font-size: small;
     }
 
     .nav{
         height: 10vh;
-        border: 1px solid white;
+        /* border: 1px solid white; */
         display: flex;
         flex-wrap: wrap;
+        
     }
 
 }

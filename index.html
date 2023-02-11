@@ -8,12 +8,13 @@
     <title>Portfolio</title>
 </head>
 <link rel="stylesheet" href="./index.css">
-<link rel="stylesheet" href="./media.css">
 <style>
     .menu{
         height: 30px;
         width: 30px;
-        background-color: white;
+        background-image: url('./images/menu_logo.gif');
+        background-size: 100%;
+        background-repeat: no-repeat;
     }
 </style>
 <body>
@@ -90,18 +91,12 @@
                     developing and optimizing interactive user
                     friendly and feature rich websites.
                     <br>
-                    Knowledge of Frontend as well as Backend
-                    server and Database.
-                    <br>
                     Proficient in
                     assortment of technologies including
                     JavaScript, NodeJS, Express and Mongo.
+                    <br>
                     Equipped with a diverse and promising
                     skillset.
-                    <br>
-                    Able to effectively self-manage during
-                    independent projects as well as
-                    collaborative in team setting.
                 </p>
                 <div class="details">
                     <div>
@@ -115,7 +110,7 @@
                             Age : 19
                         </p>
                         <p>
-                            Location : New Delhi, India
+                            Location : <a href="https://goo.gl/maps/b7vPeryhptjAse2y5" target="_blank">New Delhi, India</a>
                         </p>
                         
                     </div>
@@ -126,7 +121,7 @@
                         </p>
 
                         <p>
-                            LinkedIn : <a href="https://www.linkedin.com/in/shrvn12/" target="_blank">shrvn-singh</a>
+                            LinkedIn : <a href="https://www.linkedin.com/in/shrvn12/" target="_blank">shrvn12</a>
                         </p>
 
                         <p>
@@ -155,14 +150,14 @@
                         <img src="./images/octocat.gif" alt="">
                         <h2><a href="https://github.com/shrvn12" target="_blank">github.com/shrvn12</a></h2>
 
-                        <img id="github-stats-card"  alt="shrvn12's GitHub Stats" src="lude 'https://github-readme-stats.vercel.app/api?username=shrvn12" />
+                        <img id="github-stats-card"  alt="shrvn12's GitHub Stats" src="https://github-readme-stats.vercel.app/api?username=shrvn12" />
 
                         <img alt="shrvn12's GitHub Stats" src="https://awesome-github-stats.azurewebsites.net/user-stats/shrvn12?cardType=github&theme=tokyonight&preferLogin=false" />
                     </div>
                     
                 </div>
                 <div>
-                    <img id="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com?user=shrvn12&theme=dark" alt="">
+                    <!-- <img id="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com?user=shrvn12&theme=dark" alt=""> -->
                     <img id="github-top-langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shrvn12&layout=compact" alt="">
 
                     <img class="profilesummary" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shrvn12&theme=github_dark" alt="">
@@ -172,6 +167,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- <img id="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com?user=shrvn12&theme=dark" alt=""> -->
 
         <div class="projects" id="projects">
             <div>
@@ -403,6 +400,7 @@
                                 <li>Creativity</li>
                                 <li>Adaptability</li>
                                 <li>Collaboration</li>
+                                <li>Remote collaboration</li>
                             </ul>
                         </div>
                     </div>
@@ -505,7 +503,7 @@
             <div class="email">
                 <div>
                     <p id="contact-email">Email : <a href="mailto:singhshravan1208@gmail.com">singhshravan1208@gmail.com</a></p>
-                    <p id="contact-phone" >Ph: <a href="tel:9311529750">9311529750</a></p>
+                    <p id="contact-phone" >Ph: <a href="tel:+919311529750">+91 9311529750</a></p>
                 </div>
             </div>
             
@@ -540,30 +538,22 @@
 
     let menu = document.querySelector(".menu");
     let anchors = document.querySelectorAll(".nav>div:nth-child(3) a");
-    let anchordiv = document.querySelector(".nav>div:nth-child(3)")
+    let anchordiv = document.querySelector(".nav>div:nth-child(3)>div")
     menu.addEventListener("click",()=>{
         if(anchordiv.style.display == "none"){
-             anchordiv.style.display = "grid";
+             anchordiv.style.display = "block";
         }
         else{
             anchordiv.style.display = "none";
         }
-        // if(anchordiv.style.height == "0px"){
-        //     anchordiv.style.height = "auto";
-        // }
-        // else{
-        //     anchordiv.style.height = "0px"
-        // }
     })
 
     let divs = document.querySelectorAll(".scrollarea>div:not(.nav)")
-    console.log(divs)
-
     for(let elem of divs){
         elem.addEventListener("click",()=>{
             if(window.innerWidth < 500){
                 for(let elem of anchors){
-                    elem.style.display = "none"
+                    anchordiv.style.display = "none"
                 }
             }
         })
@@ -574,79 +564,7 @@
             if(window.innerWidth < 500){
                 anchordiv.style.display = "none";
             }
-
         })
     }
 
-
-    // function resetHeight(){
-    //     // reset the body height to that of the inner browser
-    //     scrollarea.style.height = window.height + "px";
-    // }
-    // // reset the height whenever the window's resized
-    // window.addEventListener("resize", resetHeight);
-    // // called to initially set the height.
-    // resetHeight();
-
-    // document.querySelector("#linkedin").addEventListener("click",()=>{
-    //     window.open("https://www.linkedin.com/in/shrvn12/","_blank")
-    // })
-    // document.querySelector("#github").addEventListener("click",()=>{
-    //     window.open("https://github.com/shrvn12","_blank")
-    // })
-
-    // document.querySelector(".aboutdiv").addEventListener("click",()=>{
-    //     window.location.href = "#about"
-    // })
-
-    // document.querySelector(".projectsdiv").addEventListener("click",()=>{
-    //     window.location.href = "#projects"
-    // })
-
-    // document.querySelector(".skillsdiv").addEventListener("click",()=>{
-    //     window.location.href = "#skills"
-    // })
-
-    // document.querySelector(".resumediv").addEventListener("click",()=>{
-    //     window.open("https://drive.google.com/file/d/1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo/view?usp=sharing","_blank","_self")
-    // })
-
-    // document.querySelector(".aboutdiv").addEventListener("click",()=>{
-        
-    // })
-
-    // document.querySelector(".contactdiv").addEventListener("click",()=>{
-    //     window.location.href = "#contact"
-    // })
-
-    // let sections = ["#home","#about","#projects","#skills","#contact"];
-
-    // var firstsec = document.getElementById('home');
-    // var secondsec = document.getElementById('about');
-    // var lastScrollTop = 0;
-    // window.onscroll = function(){
-    // var st = window.pageYOffset || document.documentElement.scrollTop; 
-    // if (st > lastScrollTop){
-    //     // window.location.href = "#home"
-    // } else {
-    //     // firstsec.scrollIntoView({behavior: "smooth"});
-    //     // window.location.href = "#about"
-    // }
-    // lastScrollTop = st <= 0 ? 0 : st; 
-    // }
-    // let prevst = 0;
-    // document.onscroll = function scroll() {
-    //     console.log("scroll");
-    //     // secondsec.scrollIntoView({behavior: "smooth"});
-    // }
-    // window.addEventListener("scroll",()=>{
-    //     let st = window.pageYOffset;
-    //     if(st > prevst+12){
-    //         console.log("up");
-    //     }
-    //     else if(st < prevst-12){
-    //         console.log("down");
-    //     }
-    //     prevst = st;
-    // })
 </script>
