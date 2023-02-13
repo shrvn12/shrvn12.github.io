@@ -76,11 +76,12 @@ body{
     padding: 0px;
     background-color: rgb(22, 22, 22);
     overflow-y: hidden;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 .scrollarea{
     height: 100vh;
     overflow-y: scroll;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
     background-image: url('./images/bg9.jpg');
