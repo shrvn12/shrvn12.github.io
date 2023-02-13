@@ -87,7 +87,7 @@ body{
     background-repeat: repeat;
 }
 
-.home-section,.about-section,.github,.projects,.skills-section,.contact{
+.home-section,.about-section,.github,.projects-section,.skills-section,.contact-section{
     scroll-snap-align: start;
 }
 
@@ -180,7 +180,7 @@ body{
     background-color: rgb(211, 43, 65);
     cursor: pointer;
 }
-.projects{
+.projects-section{
     width: 100%;
     height: 100vh;
     background-color: rgb(22, 22, 22);
@@ -192,7 +192,7 @@ body{
     background-repeat: repeat;
     
 }
-.projects>div:nth-child(1){
+.projects-section>div:nth-child(1){
     width: 90%;
     /* border: 1px solid; */
     margin:auto;
@@ -374,7 +374,7 @@ body{
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.contact{
+.contact-section{
     height: 100vh;
     width: 100%;
     background-color: rgb(22, 22, 22);
@@ -552,11 +552,11 @@ body{
         /* height: fit-content; */
     }
 
-    .home-section,.about-section,.github,.projects,.skills-section,.contact{
+    .home-section,.about-section,.github,.projects-section,.skills-section,.contact-section{
         height:60vh
     }
 
-    .about-section,.github,.projects,.skills-section{
+    .about-section,.github,.projects-section,.skills-section{
         background-image: url('./images/bg9.jpg');
         background-size: 100%;
         background-repeat: repeat;
@@ -637,7 +637,7 @@ body{
 
     /* .info>div:nth-child(1){} */
 
-    .projects{
+    .projects-section{
         height: auto;
         margin-bottom: 25%;
         font-size: 90%;
@@ -661,7 +661,7 @@ body{
         width: 25%;
     }
 
-    .contact{
+    .contact-section{
         font-size: 90%;
     }
 
