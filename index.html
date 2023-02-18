@@ -8,18 +8,19 @@
     <title>Portfolio</title>
 </head>
 <link rel="stylesheet" href="./index.css">
-<style>
-    .menu{
-        height: 30px;
-        width: 30px;
-        background-image: url('./images/menu_logo.gif');
-        background-size: 100%;
-        background-repeat: no-repeat;
-    }
-</style>
+<link rel="stylesheet" href="./media.css">
+
 <body>
     <div>
         <div class="scrollarea">
+            <div class="load">
+                <div>
+                    <h1>Welcome</h1>
+                    <img src="./images/preloader.gif" alt="">
+                    <h1>Loading...</h1>
+                </div>
+            </div>
+
             <div class="nav" id="nav-menu">
                 <div class="nav-link">
                     <a href="#home" class="nav-link home">
@@ -118,7 +119,7 @@
                         <div>
 
                             <p>
-                                Email : <a href="mailto:sighshravan1208@gmail.com">singhshravan1208@gmail.com</a>
+                                Email : <a class="gmail" href="mailto:sighshravan1208@gmail.com">singhshravan1208@gmail.com</a>
                             </p>
 
                             <p>
@@ -149,7 +150,7 @@
                         </div>
                         <div>
                             <img src="./images/octocat.gif" alt="">
-                            <h2><a href="https://github.com/shrvn12" target="_blank">github.com/shrvn12</a></h2>
+                            <h2 class="githubid"><a href="https://github.com/shrvn12" target="_blank">github.com/shrvn12</a></h2>
 
                             <img id="github-stats-card"  alt="shrvn12's GitHub Stats" src="https://github-readme-stats.vercel.app/api?username=shrvn12" />
 
@@ -517,59 +518,4 @@
 </body>
 </html>
 
-<script>
-    let resume = document.querySelectorAll(".resumepage");
-    for(let elem of resume){
-        elem.addEventListener("click",()=>{
-            window.open("https://drive.google.com/file/d/1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo/view?usp=sharing","_blank")
-        })        
-    }
-
-    let gitimages = document.querySelectorAll(".github img")
-    for(let elem of gitimages){
-        elem.addEventListener("click",()=>{
-            window.open("https://github.com/shrvn12","_blank")
-        })
-    }
-
-    let scrollarea = document.querySelector(".scrollarea")
-
-    const documentHeight = () => {
-    const doc = document.documentElement
-    scrollarea.style.setProperty('--doc-height', `${window.innerHeight}px`)
-    }
-    window.addEventListener(`resize`, documentHeight)
-    documentHeight()
-
-    let menu = document.querySelector(".menu");
-    let anchors = document.querySelectorAll(".nav>div:nth-child(3) a");
-    let anchordiv = document.querySelector(".nav>div:nth-child(3)>div")
-    menu.addEventListener("click",()=>{
-        if(anchordiv.style.display == "none"){
-             anchordiv.style.display = "block";
-        }
-        else{
-            anchordiv.style.display = "none";
-        }
-    })
-
-    let divs = document.querySelectorAll(".scrollarea>div:not(.nav)")
-    for(let elem of divs){
-        elem.addEventListener("click",()=>{
-            if(window.innerWidth < 600){
-                for(let elem of anchors){
-                    anchordiv.style.display = "none"
-                }
-            }
-        })
-    }
-
-    for(let elem of anchors){
-        elem.addEventListener("click",()=>{
-            if(window.innerWidth < 600){
-                anchordiv.style.display = "none";
-            }
-        })
-    }
-
-</script>
+<script src="./scripts.js"></script>

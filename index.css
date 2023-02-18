@@ -1,12 +1,66 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
 html{
     scroll-behavior: smooth;
 }
 body{
     margin: 0px;
+    padding: 0px;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
-*{
-    font-family: 'Poppins', sans-serif;
+.scrollarea{
+    background-color: rgb(22, 22, 22);
+    max-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    background-image: url('./images/bg9.jpg');
+    background-size: 100%;
+    background-repeat: repeat;
 }
+
+.home-section,.about-section,.github,.projects-section,.skills-section,.contact-section{
+    scroll-snap-align: start;
+}
+
+.load{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    z-index: 1;
+    color: white;
+    background-color: black;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.load>div{
+    width: 100%;
+}
+
+.menu{
+    height: 30px;
+    width: 30px;
+    background-image: url('./images/menu_logo.gif');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(211, 43, 65);
+    border-radius: 2px;
+}
+
+/* ----------------------------------------------------------------------------------------------------navbar----- */
+
 .nav{
     width: 100%;
     margin: auto;
@@ -66,32 +120,7 @@ body{
     cursor: pointer;
 }
 
-/* ---------------------------------------------------- */
-
-html{
-    scroll-behavior: smooth;
-}
-body{
-    margin: 0px;
-    padding: 0px;
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-.scrollarea{
-    background-color: rgb(22, 22, 22);
-    max-height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    background-image: url('./images/bg9.jpg');
-    background-size: 100%;
-    background-repeat: repeat;
-}
-
-.home-section,.about-section,.github,.projects-section,.skills-section,.contact-section{
-    scroll-snap-align: start;
-}
+/* ----------------------------------------------------------------------------------------------------home----- */
 
 .home-section{
     height: 100vh;
@@ -122,6 +151,9 @@ body{
 .home-section p{
     color: white;
 }
+
+/* ------------------------------------------------------------------------------------------------------about--- */
+
 .about-section{
     height: 100vh;
     width: 100%;
@@ -182,6 +214,9 @@ body{
     background-color: rgb(211, 43, 65);
     cursor: pointer;
 }
+
+/* -----------------------------------------------------------------------------------------------------projects---- */
+
 .projects-section{
     width: 100%;
     height: 100vh;
@@ -212,18 +247,14 @@ body{
     height: 70vh;
     /* border: 1px solid white; */
     background-color: rgb(39, 39, 39);
-    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
     transition: 0.25s;
 }
 .gallery>div:hover{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-/* .gallery img{
-    width: 100%;
-} */
+
 .image{
     width: 100%;
-    /* height: 100%; */
     /* border: 1px solid white; */
     height: 45%;
     display: flex;
@@ -242,8 +273,6 @@ body{
 .info{
     border: 1px solid transparent;
     height: 55%;
-    /* display: flex;
-    align-items: center; */
 }
 .info>div:nth-child(1){
     width: 90%;
@@ -272,7 +301,6 @@ body{
     font-size: 90%;
 }
 .info a{
-    /* text-decoration: none; */
     color: white;
     width: 25%;
 }
@@ -291,6 +319,9 @@ body{
     border-color: transparent;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+/* ----------------------------------------------------------------------------------------------------skills----- */
+
 .skills-section{
     width: 100%;
     height: 100vh;
@@ -318,7 +349,6 @@ body{
     /* border: 1px solid white; */
 }
 .skilldiv>div{
-    /* background-color: rgb(56, 56, 56); */
     background-color: rgba(255, 255, 255, 0.171);
     color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -376,6 +406,9 @@ body{
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+/* -----------------------------------------------------------------------------------------------------contact---- */
+
 .contact-section{
     height: 100vh;
     width: 100%;
@@ -431,21 +464,20 @@ body{
     text-decoration: underline;
 }
 
-/* --------------github section css-------------- */
+/* -----------------------------------------------------------------------------------------------------------github----- */
 
 .github{
     width: 100%;
     height: 100vh;
     background-color: rgb(22, 22, 22);
-    padding-top: 5%;
+    padding-top: 2%;
     background-image: url('./images/bg3.jpeg');
     background-size: 100%;
     background-repeat: repeat;
-
+    display: flex;
+    align-items: center;
 }
-/* .github img{
-    width: 100%;
-} */
+
 .github>div{
     width: 90%;
     margin: auto;
@@ -455,11 +487,6 @@ body{
 }
 .github>div>div:nth-child(1){
     width: 30%;
-    /* background-color: white; */
-    /* border-radius: 10px;
-    margin: 2%;
-    margin-top: 0%;
-    margin-bottom: 0%; */
 }
 .github>div>div:nth-child(2){
     width: 55%;
@@ -537,206 +564,6 @@ body{
     display: none;
 }
 
-@media all and (min-width:500px){
-    .menu{
-        display: none;
-    }
-}
 
-@media all and (max-width:450px) and (min-width:300px){
-    :root {
-        --doc-height: 100%;
-    }
-    .scrollarea{
-        height: var(--doc-height);
-        /* border: 3px solid red; */
-        scroll-snap-type: none;
-    }
+/* -------------------------------------------------------------------------------------------------------- */
 
-    .home-section{
-        background-size: cover;
-        /* height: fit-content; */
-    }
-
-    .home-section,.about-section,.github,.projects-section,.skills-section,.contact-section{
-        height:60vh
-    }
-
-    .about-section,.github,.projects-section,.skills-section{
-        background-image: url('./images/bg9.jpg');
-        background-size: 100%;
-        background-repeat: repeat;
-    }
-
-    .home-section{
-        background-image: url('./images/bg11.jpg');
-        background-size: 100%;
-        background-repeat: repeat;
-    }
-
-    .about{
-        font-size: 90%;
-    }
-
-    .about-section{
-        height: 55vh;
-    }
-
-    .about-section>div:nth-child(1){
-        display: none;
-    }
-
-    .about-section>div:nth-child(2){
-        width: 90%;
-        margin: auto;
-    }
-
-    .github{
-        height: 100vh;
-    }
-
-    .github>div>div:nth-child(2){
-        margin-top: 10%;
-    }
-
-    .github>div>div:nth-child(2)>img:first-of-type{
-        width: 100%;
-    }
-
-    .github>div{
-        display: block;
-        width: 90%;
-        margin: auto;
-    }
-
-    .github>div>div:nth-child(2){
-        width: 100%;
-        /* border: 1px solid white; */
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        gap: 5%;
-    }
-
-    .github>div>div:nth-child(1){
-        width: 100%;
-    }
-
-    .gallery{
-        grid-template-columns: repeat(1,1fr);
-    }
-
-    .gallery>div{
-        height: 44vh;
-    }
-
-    .image img{
-        width: 70%;
-    }
-
-    .image{
-        height: 50%;
-    }
-
-    .info{
-        height: 50%;
-    }
-
-    /* .info>div:nth-child(1){} */
-
-    .projects-section{
-        height: auto;
-        margin-bottom: 25%;
-        font-size: 90%;
-    }
-
-    .skilldiv{
-        grid-template-columns: repeat(1,1fr);
-        height: auto;
-    }
-
-    .skills-section{
-        height: auto;
-        margin-bottom: 25%;
-    }
-
-    .skilldiv>div{
-        height: 45vh;
-    }
-
-    .links>div{
-        width: 25%;
-    }
-
-    .contact-section{
-        font-size: 90%;
-    }
-
-    .scrollarea{
-        height: auto;
-        padding-bottom: 20%;
-    }
-
-    .menu{
-        display: flex;
-        margin-left: auto;
-        /* margin-bottom: 5%; */
-    }
-
-    .menu img{
-        width: 100%;
-    }
-    .nav>div:nth-child(1){
-        width: 50%;
-        /* border: 1px solid white; */
-    }
-
-    .nav>div:nth-child(2){
-        width: 40%;
-        /* border: 1px solid yellow; */
-        display: flex;
-        align-items: center;
-    }
-    .nav>div:nth-child(3){
-        position: absolute;
-        /* border: 1px solid red; */
-        width: 90%;
-        margin: auto;
-        margin-top: 15%;
-    }
-    .nav>div:nth-child(3)>div{
-        display: none;
-        /* border: 1px solid green; */
-        width: min-content;
-        margin-left: auto;
-    }
-    .nav>div:nth-child(3) a{
-        margin: 0px;
-        line-height: 0em;
-    }
-
-    .nav>div:nth-child(3) a>div{
-        border: 1px solid white;
-    }
-
-    .nav h3{
-        font-size: small;
-    }
-
-    .nav{
-        height: 10vh;
-        /* border: 1px solid white; */
-        display: flex;
-        flex-wrap: wrap;
-        
-    }
-
-}
-
-::-webkit-scrollbar {
-    background-color: transparent;
-    width: 5px;
-}
-::-webkit-scrollbar-thumb{
-    background-color: rgb(211, 43, 65);
-    border-radius: 2px;
-}
