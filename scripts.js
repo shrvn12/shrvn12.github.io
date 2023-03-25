@@ -51,54 +51,6 @@ for(let elem of anchors){
 }
 
 
-if(window.innerWidth < 870){
-    document.querySelector(".gmail").innerText = "s...@gmail.com"
-}
-
-// scrollarea.addEventListener("scroll",()=>{
-//     // console.log(scrollarea.scrollTop);
-//     const offset = scrollarea.scrollTop;
-//     // console.log(offset)
-//     if(window.innerWidth >= 820){
-//         if(offset >= 516 && offset < 1049){
-//             document.querySelector(".nav>div:nth-child(3)>div>a:nth-child(1)>div").style.backgroundColor = "grey";
-//         }
-//         else{
-//             document.querySelector(".nav>div:nth-child(3)>div>a:nth-child(1)>div").style.backgroundColor = "transparent";
-//         }
-
-//         if(offset >= 1049 && offset < 1608){
-//             document.querySelector(".nav>div:nth-child(3)>div>a:nth-child(2)>div").style.backgroundColor = "grey";
-//         }
-//         else{
-//             document.querySelector(".nav>div:nth-child(3)>div>a:nth-child(2)>div").style.backgroundColor = "transparent";
-//         }
-
-//         if(offset >= 1608 && offset < 2167){
-//             document.querySelector(".nav>div:nth-child(3)>div>a:nth-child(3)>div").style.backgroundColor = "grey";
-//         }
-//         else{
-//             document.querySelector(".nav>div:nth-child(3)>div>a:nth-child(3)>div").style.backgroundColor = "transparent";
-//         }
-
-//         if(offset >= 2167 && offset < 2727){
-//             document.querySelector(".nav>div:nth-child(3)>div>a:nth-child(4)>div").style.backgroundColor = "grey";
-//         }
-//         else{
-//             document.querySelector(".nav>div:nth-child(3)>div>a:nth-child(4)>div").style.backgroundColor = "transparent";
-//         }
-
-//         if(offset > 2727){
-//             document.querySelector(".nav>div:nth-child(3)>div>a:nth-child(5)>div").style.backgroundColor = "grey";
-//         }
-//         else{
-//             document.querySelector(".nav>div:nth-child(3)>div>a:nth-child(5)>div").style.backgroundColor = "transparent";
-//         } 
-//     }
-// })
-
-// for(let elem of anchors){
-//     elem.addEventListener("hover",()=>{
-//         elem.style.backgroundColor = "grey";
-//     })
+// if(window.innerWidth < 870){
+//     document.querySelector(".gmail").innerText = "s...@gmail.com"
 // }

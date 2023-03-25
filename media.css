@@ -5,23 +5,33 @@
 }
 
 @media all and (max-width:565px) and (min-width:300px){
-    /* :root {
-        --doc-height: 100%;
-    } */
     .scrollarea{
-        /* height: var(--doc-height); */
         height: 100vh;
-        /* border: 3px solid red; */
         scroll-snap-type: none;
+    }
+
+    .scrollarea div{
+        height: auto;
+    }
+
+    .scrollarea>div:nth-child(1){
+        height: 100%;
+    }
+
+    .scrollarea>div:nth-child(2)>div:nth-child(2)>div{
+        height: 30px;
+        display: flex;
+        margin-left: auto;
     }
 
     .home-section{
         background-size: cover;
-        /* height: fit-content; */
+        padding-top: 40%;
+        padding-bottom: 40%;
     }
 
     .home-section,.about-section,.github,.projects-section,.skills-section,.contact-section{
-        height:60vh
+        height:auto;
     }
 
     .about-section,.github,.projects-section,.skills-section{
@@ -83,12 +93,31 @@
         width: 100%;
     }
 
+    .github>div>div:nth-child(2)>div:nth-child(3){
+        width: 100%;
+        margin: auto;
+    }
+
+    .calendar>div>div>div:nth-child(1){
+        overflow-x: scroll;
+    }
+
+    .calendar>div>div>div:nth-child(1)::-webkit-scrollbar{
+        background-color: transparent;
+        height: 2px;
+    }
+
+    .calendar>div{
+        border: 1px solid white;
+    }
+
     .gallery{
         grid-template-columns: repeat(1,1fr);
     }
 
     .gallery>div{
-        height: 44vh;
+        padding-top: 5%;
+        padding-bottom: 5%;
     }
 
     .image img{
@@ -98,12 +127,6 @@
     .image{
         height: 50%;
     }
-
-    .info{
-        height: 50%;
-    }
-
-    /* .info>div:nth-child(1){} */
 
     .projects-section{
         height: auto;
@@ -122,7 +145,7 @@
     }
 
     .skilldiv>div{
-        height: 45vh;
+        padding-bottom: 15%;
     }
 
     .links>div{

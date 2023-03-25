@@ -9,6 +9,10 @@
 </head>
 <link rel="stylesheet" href="./index.css">
 <link rel="stylesheet" href="./media.css">
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
+/>
 
 <body>
     <div>
@@ -159,15 +163,23 @@
                         
                     </div>
                     <div>
+                        <div>
+                            <img id="github-top-langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shrvn12&layout=compact" alt="">
+                        </div>
                         
+                        <div>
+                           <img id="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com?user=shrvn12&theme=dark" alt=""> 
+                        </div>
+                        
+                        <!-- <div class="profilesummary">
+                            <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shrvn12&theme=github_dark" alt="">
+                        </div> -->
 
-                        <img id="github-top-langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shrvn12&layout=compact" alt="">
-
-                        <img id="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com?user=shrvn12&theme=dark" alt="">
-
-                        <img class="profilesummary" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shrvn12&theme=github_dark" alt="">
-
-                        <img class="react-activity-calendar" src="./images/calendar.png" alt="github-calendar">
+                        <!-- <img class="react-activity-calendar" src="./images/calendar.png" alt="github-calendar"> -->
+                        <div class="calendar">
+                            <!-- Loading stuff -->
+                            Loading the data just for you.
+                        </div>
                         
                     </div>
                 </div>
@@ -359,8 +371,8 @@
                                 </div>
 
                                 <div>
-                                    <a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">
-                                        <img src="./images/bootstrap-logo.png" alt="">
+                                    <a href="https://expressjs.com/" target="_blank">
+                                        <img src="./images/express_logo.jpg" alt="">
                                     </a>
                                 </div>
 
@@ -378,10 +390,34 @@
 
                                 <div>
                                     <a href="https://www.python.org/" target="_blank">
-                                        <img src="./images/python_logo.png" alt="">
+                                        <img src="./images/react-logo-svgrepo-com.svg" alt="">
                                     </a>
                                 </div>
-                                <div></div>
+                                
+                                <div>
+                                    <a href="https://aws.amazon.com/" target="_blank">
+                                        <img src="./images/typescript-logo-svgrepo-com.svg" alt="">
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="https://www.python.org/" target="_blank">
+                                        <img src="./images/redis-svgrepo-com.svg" alt="">
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="https://www.python.org/" target="_blank">
+                                        <img src="./images/socket-dot-io-svgrepo-com.svg" alt="">
+                                    </a>
+                                </div>
+                                
+                                <div>
+                                    <a href="https://aws.amazon.com/" target="_blank">
+                                        <img title="Data Structures and Algorithms" src="./images/algorithm.png" alt="">
+                                    </a>
+                                </div>
+
                             </div>
                             
                         </div>
@@ -391,7 +427,7 @@
                                     1200+
                                 </h1>
                                 <h2>
-                                    Hours of handson coding experience
+                                    Hours of hands on coding experience
                                 </h2>
                                 <h1>
                                     5
@@ -454,16 +490,52 @@
                                 </div>
 
                                 <div>
-                                    <a href="https://www.bing.com/" target="_blank">
-                                        <img src="./images/bing_logo.jpeg" alt="">
+                                    <a href="https://www.netlify.com/" target="_blank">
+                                        <img src="./images/Replit-logo.svg" alt="">
+                                    </a>
+                                </div>
+                                <!-- ---------------------------- -->
+                                <div>
+                                    <a href="https://www.microsoft.com/en-us/edge?exp=e507&form=MA13FJ" target="_blank">
+                                        <img src="./images/codepen-svgrepo-com.svg" alt="">
                                     </a>
                                 </div>
 
                                 <div>
-                                    <a href="https://expressjs.com/" target="_blank">
-                                        <img src="./images/express_logo.jpg" alt="">
+                                    <a href="https://slack.com/intl/en-in/" target="_blank">
+                                        <img src="./images/vercel-fill-svgrepo-com.svg" alt="">
                                     </a>
-                                </div>                        
+                                </div>
+
+                                <div>
+                                    <a href="https://www.netlify.com/" target="_blank">
+                                        <img src="./images/codesandbox-svgrepo-com.svg" alt="">
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="https://www.netlify.com/" target="_blank">
+                                        <img src="./images/google-calendar-svgrepo-com.svg" alt="">
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="https://www.netlify.com/" target="_blank">
+                                        <img src="./images/miro-svgrepo-com.svg" alt="">
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="https://www.netlify.com/" target="_blank">
+                                        <img src="./images/snapseed-seeklogo.com.svg" alt="">
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="https://www.netlify.com/" target="_blank">
+                                        <img src="./images/railway_logo.svg" alt="">
+                                    </a>
+                                </div>
 
                                 <div></div>
                             </div>
@@ -519,3 +591,19 @@
 </html>
 
 <script src="./scripts.js"></script>
+<script
+  src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
+</script>
+<script>
+    GitHubCalendar(".calendar", "shrvn12");
+
+    // or enable responsive functionality:
+    GitHubCalendar(".calendar", "shrvn12", { responsive: true });
+
+    // Use a proxy
+    GitHubCalendar(".calendar", "shrvn12", {
+       proxy (username) {
+         return fetch(`https://your-proxy.com/github?user=${username}`)
+       }
+    })
+</script>
