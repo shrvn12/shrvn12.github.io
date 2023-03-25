@@ -38,7 +38,7 @@
         height:auto;
     }
 
-    .about-section,.github,.projects-section,.skills-section{
+    .about-section,.github,.projects-section,.skills-section,.contact-section{
         background-image: url('./images/bg9.jpg');
         background-size: 100%;
         background-repeat: repeat;
