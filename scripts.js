@@ -51,6 +51,6 @@ for(let elem of anchors){
 }
 
 
-// if(window.innerWidth < 870){
-//     document.querySelector(".gmail").innerText = "s...@gmail.com"
-// }
+if(window.innerWidth < 870){
+    document.querySelector(".gmail").innerText = "s...@gmail.com"
+}

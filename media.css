@@ -24,6 +24,10 @@
         margin-left: auto;
     }
 
+    .nav>div:nth-child(3)>div>a>div{
+        background-color: rgba(0, 0, 0, 0.788);
+    }
+
     .home-section{
         background-size: cover;
         padding-top: 40%;
@@ -154,6 +158,7 @@
 
     .contact-section{
         font-size: 90%;
+        padding-top: 20%;
     }
 
     .scrollarea{
