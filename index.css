@@ -22,7 +22,7 @@ body{
     background-repeat: repeat;
 }
 
-.home-section,.about-section,.github,.projects-section,.skills-section,.contact-section{
+.home-section,#about,.github,.projects-section,.skills-section,.contact-section{
     scroll-snap-align: start;
 }
 
@@ -158,7 +158,7 @@ body{
 
 /* ------------------------------------------------------------------------------------------------------about--- */
 
-.about-section{
+#about{
     height: 100vh;
     width: 100%;
     background-color: rgb(22, 22, 22);
@@ -169,13 +169,13 @@ body{
     background-repeat: repeat;
     /* font-size: 95%; */
 }
-.about-section>div:nth-child(1){
+#about>div:nth-child(1){
     /* border: 1px solid; */
     width: 40%;
     display: flex;
     align-items: center;
 }
-.about-section>div:nth-child(2){
+#about>div:nth-child(2){
     /* border: 1px solid; */
     width: 50%;
     padding-top: 5%;
@@ -183,10 +183,10 @@ body{
     margin-left: 3%;
     line-height: 1.1em;
 }
-.about-section h3{
+#about h3{
     color: rgb(211, 43, 65);
 }
-.about-section img{
+#about img{
     width: 80%;
     display: block;
     margin-left: auto;
@@ -210,7 +210,7 @@ body{
     color: white;
     text-decoration: underline;
 }
-.about-section button{
+#about button{
     margin-top: 3%;
     height: 40px;
     border-left: 1px solid rgb(211, 43, 65);
@@ -227,7 +227,7 @@ body{
     background-position 0.3s calc(0.3s - var(--t, 0s));
 }
 
-.about-section button:hover{
+#about button:hover{
     --p: 100%;
     --t: 0.3s;
     color: #fff;
