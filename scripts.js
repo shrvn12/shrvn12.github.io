@@ -34,7 +34,7 @@ menu.addEventListener("click",()=>{
 let divs = document.querySelectorAll(".scrollarea>div:not(.nav)")
 for(let elem of divs){
     elem.addEventListener("click",()=>{
-        if(window.innerWidth < 600){
+        if(window.innerWidth < 820){
             for(let elem of anchors){
                 anchordiv.style.display = "none"
             }
@@ -44,7 +44,7 @@ for(let elem of divs){
 
 for(let elem of anchors){
     elem.addEventListener("click",()=>{
-        if(window.innerWidth < 600){
+        if(window.innerWidth < 820){
             anchordiv.style.display = "none";
         }
     })

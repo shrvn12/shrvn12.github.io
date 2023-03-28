@@ -365,7 +365,7 @@ body{
 }
 .skilldiv{
     width: 90%;
-    height: 73vh;
+    height: auto;
     margin: auto;
     margin-top: 2%;
     display: grid;
@@ -377,11 +377,15 @@ body{
     background-color: rgba(255, 255, 255, 0.171);
     color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    height: 70vh;
+    height: max-content;
     padding-bottom: 5%;
     border-radius: 10px;
     /* border: 1px solid; */
 }
+
+/* .skilldiv>div>div{
+    padding-bottom: 5%;
+} */
 .skilldiv>div:nth-child(2){
     background-color: rgba(255, 255, 255, 0.116);
     font-size: large;
@@ -423,6 +427,7 @@ body{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 3%;
+    padding-bottom: 10%;
 }
 .techskills>div{
     margin-top: 5%;
@@ -627,10 +632,6 @@ body{
 #github-stats-card{
     display: none;
 }
-
-/* .skills-card-img{
-    display: none;
-} */
 
 .react-activity-calendar{
     display: none;
