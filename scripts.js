@@ -10,7 +10,7 @@ for(let elem of resume){
     })        
 }
 
-function resume(){
+function Resume(){
     window.open("https://drive.google.com/file/d/1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo/view?usp=sharing","_blank");
 }
 
