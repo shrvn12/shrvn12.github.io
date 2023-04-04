@@ -124,6 +124,15 @@ body{
     cursor: pointer;
 }
 
+.nav button{
+    background-color: transparent;
+    border: 0px;
+    width: 100%;
+    cursor: pointer;
+    height: 100%;
+    text-align: center;
+}
+
 /* ----------------------------------------------------------------------------------------------------home----- */
 
 .home-section{
