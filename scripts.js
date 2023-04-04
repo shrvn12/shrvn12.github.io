@@ -14,7 +14,7 @@ function resume(){
     window.open("https://drive.google.com/file/d/1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo/view?usp=sharing","_blank");
 }
 
-function Resumedownload2(){
+function resume2(){
     window.open("https://drive.google.com/file/d/1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo/view?usp=sharing","_blank");
 }
 
