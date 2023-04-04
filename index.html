@@ -68,11 +68,10 @@
                     
                         <a class="nav-link resume" id="resume-link-1"
                         href="Shravan_Resume.pdf" download="./Shravan_Resume" target="_blank" >
-                            <div>
-                                <button onclick = Resumedownload()>
-                                    <h3 id="resume-button-1">RESUME</h3>
-                                </button>
-                            </div>
+                            <button onclick="resume()" id="resume-button-1">
+                                <a id="resume-link-1" href="./Shravan_Resume.pdf"
+                                target="_blank" download="Shravan_Resume">Resume</a>
+                            </button>
                         </a>
                     </div>
 
@@ -145,12 +144,11 @@
                     <!-- <a id="resume-button-2" href="Shravan_Resume.pdf" download="./Shravan_Resume" target="_blank" >
                         <button class="resumepage" id="resume-link-2">Download Resume</button>
                     </a> -->
-                    <a id="resume-link-2"
-                        href="Shravan_Resume.pdf" download target="_blank" >
-                            <button id="resume-button-2" onclick = Resumedownload2()>
-                                <h3>RESUME</h3>
-                            </button>
-                    </a>
+                    <li class="nav-link resume" id="resume">
+                        <button onclick="resume()" id="resume-button-2">
+                            <a id="resume-link-2" href="./Shravan_Resume.pdf" target="_blank" download="Shravan_Resume.pdf">Resume</a>
+                        </button>
+                    </li>
                     
                 </div>
                 <h1 id="hide">About</h1>

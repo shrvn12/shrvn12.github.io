@@ -3,14 +3,14 @@ window.addEventListener("load",()=>{
 })
 
 
-let resume = document.querySelectorAll(".resumepage");
-for(let elem of resume){
-    elem.addEventListener("click",()=>{
-        window.open("https://drive.google.com/file/d/1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo/view?usp=sharing","_blank");
-    })        
-}
+// let resume = document.querySelectorAll(".resumepage");
+// for(let elem of resume){
+//     elem.addEventListener("click",()=>{
+//         window.open("https://drive.google.com/file/d/1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo/view?usp=sharing","_blank");
+//     })        
+// }
 
-function Resumedownload(){
+function resume(){
     window.open("https://drive.google.com/file/d/1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo/view?usp=sharing","_blank");
 }
 
