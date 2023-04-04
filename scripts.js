@@ -14,6 +14,10 @@ function Resumedownload(){
     window.open("https://drive.google.com/file/d/1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo/view?usp=sharing","_blank");
 }
 
+function Resumedownload2(){
+    window.open("https://drive.google.com/file/d/1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo/view?usp=sharing","_blank");
+}
+
 let gitimages = document.querySelectorAll(".github img")
 for(let elem of gitimages){
     elem.addEventListener("click",()=>{
