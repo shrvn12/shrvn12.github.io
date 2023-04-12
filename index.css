@@ -386,7 +386,7 @@ body{
     background-color: rgba(255, 255, 255, 0.171);
     color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    height: max-content;
+    height: 70vh;
     padding-bottom: 5%;
     border-radius: 10px;
     /* border: 1px solid; */
