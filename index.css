@@ -521,7 +521,7 @@ body{
 .links img{
     width: 100%;
     cursor: pointer;
-    transition: 0.25s;
+    transition: 0.3s;
     border-radius: 50px;
     display: block;
     margin: auto;
@@ -529,7 +529,7 @@ body{
 }
 
 .links img:hover{
-    box-shadow: #dfdfdf 0px 0px 10px;
+    filter: drop-shadow(#d1e000 0px 0px 5px);
 }
 
 .email{
