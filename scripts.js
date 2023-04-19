@@ -62,4 +62,7 @@ for(let elem of anchors){
 if(window.innerWidth < 870){
     document.querySelector(".gmail").innerText = "s...@gmail.com"
 }
-        
+
+document.querySelector('.home-section>div>img').addEventListener('click',() => {
+    window.location.href = "https://shrvn12.gthub.io#about"
+})

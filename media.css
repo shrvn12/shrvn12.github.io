@@ -10,7 +10,7 @@
     }
 
     .scrollarea{
-        height: 100vh;
+        height: auto;
         scroll-snap-type: none;
     }
 
@@ -220,11 +220,14 @@
     }
 
     .nav{
-        height: 10vh;
+        height: auto;
         /* border: 1px solid white; */
         display: flex;
         flex-wrap: wrap;
         
     }
-
 }
+
+/* @media all and (max-width:1000px) and (min-width:800px) {
+    
+} */

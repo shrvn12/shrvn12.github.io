@@ -155,7 +155,15 @@ body{
     /* border: 1px solid; */
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.575);
+    box-shadow: #d3d3d3 0px 0px 5px;
+    transition: 0.5s;
+    cursor: pointer;
 }
+
+.home-section>div>img:hover{
+    box-shadow: #d3d3d3 0px 0px 10px;
+}
+
 .home-section h1{
     font-size: 50px;
     line-height: 0.05em;
@@ -271,13 +279,14 @@ body{
     margin-top: 2%;
 }
 .gallery>div{
-    height: 70vh;
+    /* height: 70vh; */
     /* border: 1px solid white; */
     background-color: rgb(39, 39, 39);
     transition: 0.25s;
+    padding-bottom: 10%;
 }
 .gallery>div:hover{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(206, 206, 206, 0.35) 0px 0px 15px;
 }
 
 .image{
@@ -286,19 +295,17 @@ body{
     height: 45%;
     display: flex;
     align-items: center;
+    margin-top: 3%;
+    margin-bottom: 5%;
 }
 .image img{
     width: 90%;
     display: block;
     margin: auto;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(168, 168, 168, 0.35) 0px 0px 5px;
     transition: 0.25s;
 }
-.image img:hover{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    scale: 1.1;
-    transform: perspective();
-}
+
 .info{
     border: 1px solid transparent;
     height: 55%;
@@ -312,6 +319,7 @@ body{
 .info>div:nth-child(2){
     width: 90%;
     margin: auto;
+    margin-top: 2%;
     height: 30%;
     /* border: 1px solid white; */
     display: flex;
@@ -322,6 +330,8 @@ body{
     font-weight: normal;
     line-height: 0em;
     color: rgb(211, 43, 65);
+    margin-top: 0px;
+    /* margin-bottom: 2%; */
 }
 .info p{
     font-size: 90%
@@ -386,10 +396,14 @@ body{
     background-color: rgba(255, 255, 255, 0.171);
     color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    height: 70vh;
     padding-bottom: 5%;
     border-radius: 10px;
+    transition:0.5s;
     /* border: 1px solid; */
+}
+
+.skilldiv>div:hover{
+    box-shadow: rgba(216, 216, 216, 0.35) 0px 0px 15px;
 }
 
 /* .skilldiv>div>div{
@@ -406,18 +420,21 @@ body{
     margin: auto;
 }
 .content2>h1{
-    line-height: 0em;
-    margin-top: 10%;
+    /* line-height: 0em; */
+    margin: 0px;
+    margin-top: 2%;
+    /* font-size: x-large; */
 }
 .content2>h2{
     font-weight: normal;
-    font-size: larger;
+    font-size: large;
+    margin-top: 0px;
 }
 .skilldiv>div:nth-child(1)>h1,.skilldiv>div:nth-child(3)>h1{
     margin-left: 5%;
     line-height: 0.5em;
 }
-.skilldiv>div:nth-child(1)>ul{
+.skilldiv>div:nth-child(1)>li{
     line-height: 1.1em;
     font-size: large;
 }
@@ -427,9 +444,10 @@ body{
     border-radius: 5px;
     transition: 0.25s;
 }
-.skilldiv img:hover{
+
+/* .skilldiv img:hover{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
+} */
 .techskills{
     width: 90%;
     margin: auto;
@@ -441,22 +459,25 @@ body{
 .techskills>div{
     margin-top: 5%;
     background-color: rgba(255, 255, 255, 0.212);
-    height: min-content;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border: 1px solid white;
     transition: 0.5s;
+    display: flex;
+    align-items: center;
 }
 
 .techskills>div:hover{
     background-color: white;
+    box-shadow: rgba(221, 221, 221, 0.24) 0px 0px 15px;
     transform: rotate(3deg);
     scale: 1.1;
 }
 
-.tobeadded{
-    position: relative;
-    border: 1px solid white;
+.techskills>.margin>a>img{
+    /* border: 1px solid red; */
+    width: 80%;
+    margin: auto;
 }
 
 /* -----------------------------------------------------------------------------------------------------contact---- */
@@ -500,6 +521,15 @@ body{
 .links img{
     width: 100%;
     cursor: pointer;
+    transition: 0.25s;
+    border-radius: 50px;
+    display: block;
+    margin: auto;
+    padding: -10%;
+}
+
+.links img:hover{
+    box-shadow: #dfdfdf 0px 0px 10px;
 }
 
 .email{
