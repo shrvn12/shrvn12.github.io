@@ -654,10 +654,12 @@ body{
 
 #github-top-langs{
     width: 85%;
+    border: 1.5px solid white;
 }
 
 #github-streak-stats{
     width: 120%;
+    border: 1.5px solid white;
 }
 
 .calendar span{
