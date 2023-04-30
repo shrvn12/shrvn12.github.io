@@ -1,6 +1,6 @@
-window.addEventListener("load",()=>{
-    document.querySelector(".load").style.display = "none"
-})
+// window.addEventListener("load",()=>{
+//     document.querySelector(".load").style.display = "none"
+// })
 
 
 // let resume = document.querySelectorAll(".resumepage");
