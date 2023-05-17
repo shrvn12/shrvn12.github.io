@@ -18,11 +18,7 @@
         height: auto;
     }
 
-    .scrollarea>div:nth-child(1){
-        height: 100%;
-    }
-
-    .scrollarea>div:nth-child(2)>div:nth-child(2)>div{
+    .scrollarea>div:nth-child(1)>div:nth-child(2)>div{
         height: 30px;
         display: flex;
         margin-left: auto;
@@ -198,7 +194,7 @@
         /* border: 1px solid red; */
         width: 90%;
         margin: auto;
-        margin-top: 15%;
+        margin-top: 10%;
     }
     .nav>div:nth-child(3)>div{
         display: none;
@@ -223,8 +219,7 @@
         height: auto;
         /* border: 1px solid white; */
         display: flex;
-        flex-wrap: wrap;
-        
+        /* flex-wrap: wrap; */
     }
 }
 
