@@ -7,23 +7,33 @@ html{
 body{
     margin: 0px;
     padding: 0px;
-    overflow-y: hidden;
+    overflow-y: auto;
     overflow-x: hidden;
+    /* background-color: rgb(22, 22, 22); */
 }
-.scrollarea{
-    background-color: rgb(22, 22, 22);
-    max-height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    background-image: url('./images/bg9.jpg');
-    background-size: 100%;
-    background-repeat: repeat;
+.scrollarea {
+    position: relative;
+    z-index: 1;
 }
 
+
+#background-frame {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    z-index: -1;
+    pointer-events: none; /* Let clicks pass through */
+}
+
+
+
+
 .home-section,#about,.github,.projects-section,.skills-section,.contact-section{
-    scroll-snap-align: start;
+    /* scroll-snap-align: start; */
+    background-color: transparent;
 }
 
 .load{
@@ -64,11 +74,19 @@ body{
 .nav{
     width: 100%;
     margin: auto;
-    /* border: 1px solid; */
+    /* border: 1px solid white; */
     display: flex;
     position: fixed;
     padding-left: 2%;
+    align-items: center;
+    z-index: 1000;
 }
+
+#nav.scrolled{
+    background-color: rgba(0, 0, 0, 0.7); /* or any color */
+    backdrop-filter: blur(10px); /* optional: for glassy look */
+}
+
 .nav>div:nth-child(1){
     /* border: 1px solid; */
     width: 35%;
@@ -85,6 +103,7 @@ body{
     height: 100%;
     display: grid;
     grid-template-columns: repeat(6,1fr);
+    gap: 2%;
 }
 .nav h3{
     font-size:medium;
@@ -95,18 +114,6 @@ body{
 .nav a{
     text-decoration: none;
     color: white;
-}
-
-.nav>div:nth-child(3)>div>a>div{
-    /* border: 1px solid white; */
-    display: flex;
-    align-items: center;
-    height: 70%;
-    transition: 0.5s;
-    cursor: pointer;
-    color: rgb(100, 154, 172);
-    background: linear-gradient(rgb(211, 43, 65) 0 0) right / var(--p,0) no-repeat;
-    transition: .4s,background-position 0s;
 }
 
 .nav>div:nth-child(3)>div>a>div>h3{
@@ -120,7 +127,7 @@ body{
     background-position: left;
 }
 .nav img{
-    width: 50%;
+    width: 40%;
     cursor: pointer;
 }
 
@@ -138,7 +145,7 @@ body{
 .home-section{
     height: 100vh;
     width: 100%;
-    background-image: url('./images/aeroplanebg.jpeg');
+    /* background-image: url('./images/aeroplanebg.jpeg'); */
     background-size: 100%;
     background-repeat: repeat;
     display: flex;
@@ -178,10 +185,10 @@ body{
 #about{
     height: 100vh;
     width: 100%;
-    background-color: rgb(22, 22, 22);
+    /* background-color: rgb(22, 22, 22); */
     display: flex;
     padding-top: 2%;
-    background-image: url('./images/bg2.jpeg');
+    /* background-image: url('./images/bg2.jpeg'); */
     background-size: 100%;
     background-repeat: repeat;
     /* font-size: 95%; */
@@ -255,13 +262,14 @@ body{
 .projects-section{
     width: 100%;
     height: 100vh;
-    background-color: rgb(22, 22, 22);
-    padding-top: 5%;
+    /* background-color: rgb(22, 22, 22); */
+    padding-top: 7%;
     color: white;
     margin-bottom: 0px;
-    background-image: url('./images/bg2.jpeg');
+    /* background-image: url('./images/bg2.jpeg'); */
     background-size: 100%;
     background-repeat: repeat;
+    /* border: 1px solid white; */
     
 }
 .projects-section>div:nth-child(1){
@@ -369,10 +377,10 @@ body{
 .skills-section{
     width: 100%;
     height: 100vh;
-    background-color: rgb(22, 22, 22);
+    /* background-color: rgb(22, 22, 22); */
     margin-top: 0%;
     padding-top: 5%;
-    background-image: url('./images/bg6.jpeg');
+    /* background-image: url('./images/bg6.jpeg'); */
     background-size: 100%;
     background-repeat: repeat;
 }
@@ -402,9 +410,9 @@ body{
     /* border: 1px solid; */
 }
 
-.skilldiv>div:hover{
+/* .skilldiv>div:hover{
     box-shadow: rgba(255, 255, 255, 0.589) 0px 0px 7px;
-}
+} */
 
 /* .skilldiv>div>div{
     padding-bottom: 5%;
@@ -485,18 +493,18 @@ body{
 .contact-section{
     height: 100vh;
     width: 100%;
-    background-color: rgb(22, 22, 22);
-    padding-top: 5%;
-    background-image: url('./images/contactbg.jpeg');
+    /* background-color: rgb(22, 22, 22); */
+    /* background-image: url('./images/contactbg.jpeg'); */
     background-size: 100%;
     background-repeat: repeat;
+    border: 1px solid transparent;
 }
 .message{
     color: white;
     width: 90%;
     margin: auto;
     text-align: center;
-    margin-top: 7%;
+    margin-top: 15%;
 }
 .message>p{
     font-style: italic;
@@ -551,13 +559,17 @@ body{
 .github{
     width: 100%;
     height: 100vh;
-    background-color: rgb(22, 22, 22);
-    padding-top: 2%;
-    background-image: url('./images/bg3.jpeg');
+    /* background-color: rgb(22, 22, 22); */
+    /* padding-top: 2%; */
+    /* background-image: url('./images/bg3.jpeg'); */
     background-size: 100%;
     background-repeat: repeat;
     display: flex;
     align-items: center;
+}
+
+.hide-sm{
+    display: none;
 }
 
 .github>div{
@@ -571,12 +583,13 @@ body{
     width: 30%;
 }
 .github>div>div:nth-child(2){
-    width: 55%;
+    max-width: 60%;
+    height: 85vh;
     /* border: 1px solid white; */
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 2%;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 
 .github>div>div:nth-child(2)>div{
@@ -640,6 +653,7 @@ body{
     border-radius: 5px;
     grid-column-start: 1;
     grid-column-end: 3;
+    margin-top: 10%;
 }
 
 .github>div>div:nth-child(2)>div:nth-child(1),.github>div>div:nth-child(2)>div:nth-child(2){
@@ -688,4 +702,3 @@ section{
 
 
 /* -------------------------------------------------------------------------------------------------------- */
-
