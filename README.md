@@ -7,7 +7,7 @@ This site showcases my projects, skills, resume, and a little about who I am as 
 
 ## 🚀 Live Website
 
-👉 [Visit My Portfolio](https://shrvn12.vercel.app)
+👉 [Visit My Portfolio](https://shrvn12.github.io)
 
 ---
 
