@@ -270,7 +270,7 @@ body{
     
 }
 .projects-section>div:nth-child(1){
-    width: 90%;
+    width: 100%;
     /* border: 1px solid; */
     margin:auto;
 }
@@ -699,3 +699,23 @@ section{
 
 
 /* -------------------------------------------------------------------------------------------------------- */
+.velocity-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  background: transparent;
+  padding: 1rem 0;
+  /* border: 1px solid white; */
+}
+
+.velocity-track {
+  display: inline-flex;
+  gap: 3rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  will-change: transform;
+  /* border: 1px solid white; */
+}
+
+

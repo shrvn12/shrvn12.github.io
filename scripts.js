@@ -116,3 +116,45 @@ window.addEventListener('DOMContentLoaded', () => {
 
   requestAnimationFrame(raf);
 });
+
+const track = document.getElementById('velocity-track');
+  let speed = 50; // base speed in pixels/sec
+  let currentX = 0;
+  let lastTime = performance.now();
+
+  function animateScroll() {
+    const now = performance.now();
+    const deltaTime = (now - lastTime) / 1000; // in seconds
+    lastTime = now;
+
+    currentX -= speed * deltaTime;
+    
+    // Reset when full scroll is done
+    const trackWidth = track.offsetWidth;
+    if (Math.abs(currentX) > trackWidth / 2) {
+      currentX = 0;
+    }
+
+    track.style.transform = `translateX(${currentX}px)`;
+    requestAnimationFrame(animateScroll);
+  }
+
+  // Scroll velocity effect
+  let lastScrollY = window.scrollY;
+
+  function monitorScroll() {
+    const currentScrollY = window.scrollY;
+    const deltaY = currentScrollY - lastScrollY;
+    lastScrollY = currentScrollY;
+
+    const scrollVelocity = Math.abs(deltaY);
+    const extraSpeed = scrollVelocity * 5;
+    speed = 50 + extraSpeed; // adjust multiplier to taste
+
+    setTimeout(() => (speed = 50), 100); // decay speed quickly
+
+    requestAnimationFrame(monitorScroll);
+  }
+
+  animateScroll();
+  monitorScroll();
