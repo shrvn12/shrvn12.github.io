@@ -28,9 +28,6 @@ body{
     pointer-events: none; /* Let clicks pass through */
 }
 
-
-
-
 .home-section,#about,.github,.projects-section,.skills-section,.contact-section{
     /* scroll-snap-align: start; */
     background-color: transparent;
