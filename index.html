@@ -1,690 +1,1237 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./media.css">
-    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
-    <title>Shravan | Full-stack web developer</title>
-    <!-- <script src="https://unpkg.com/@studio-freight/lenis@1.0.38/bundled/lenis.min.js" defer></script> -->
-     <!-- GSAP core -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software Engineer-Shravan singh</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"
+    rel="stylesheet" />
 
-    <!-- ScrollTrigger plugin -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base: '#2c3545',
+            surface: '#343f52',
+            border: '#45536c',
+            text: '#ffffff',
+            muted: '#cbd5e1',
+            accent: '#38bdf8',
+            faint: '#3c4b63',
+          },
+          fontFamily: {
+            display: ['Inter', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'SF Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
 
-    <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js" defer></script>
-    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
-    <script src="./scripts.js" defer></script>
+  <style>
+    * {
+      scroll-behavior: smooth;
+    }
+
+    html {
+      background: #2c3545;
+      color: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Cursor blink with color shuffle */
+    .cursor::after {
+      content: '|';
+      animation: blink 4s step-end infinite;
+      margin-left: 2px;
+      font-size: 70%;
+    }
+
+    @keyframes blink {
+      0% {
+        color: #38bdf8;
+        opacity: 1;
+      }
+
+      12.5% {
+        opacity: 0;
+      }
+
+      25% {
+        color: #f59e0b;
+        opacity: 1;
+      }
+
+      37.5% {
+        opacity: 0;
+      }
+
+      50% {
+        color: #10b981;
+        opacity: 1;
+      }
+
+      62.5% {
+        opacity: 0;
+      }
+
+      75% {
+        color: #ec4899;
+        opacity: 1;
+      }
+
+      87.5% {
+        opacity: 0;
+      }
+    }
+
+    /* Section fade-in on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Thin accent divider */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #45536c 20%, #45536c 80%, transparent);
+    }
+
+    /* Nav active dot */
+    .nav-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #38bdf8;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .nav-item.active .nav-dot {
+      opacity: 1;
+    }
+
+    .nav-item.active a {
+      color: #ffffff;
+    }
+
+    /* Project card hover */
+    .project-card {
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .project-card:hover {
+      border-color: #38bdf8;
+      background: #3b475c;
+    }
+
+    /* Skill chip */
+    .skill-chip {
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .skill-chip:hover {
+      border-color: #38bdf8;
+      color: #ffffff;
+    }
+
+    /* Stat number count-up style */
+    .stat-num {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* GitHub contribution-bar */
+    .contrib-bar {
+      height: 3px;
+      border-radius: 2px;
+      background: #45536c;
+      overflow: hidden;
+    }
+
+    .contrib-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #38bdf8, #e8c99a);
+      transition: width 1s ease 0.3s;
+    }
+
+    /* Timeline track */
+    .timeline-track {
+      position: relative;
+    }
+
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(180deg, #38bdf8 0%, #45536c 100%);
+    }
+
+    .timeline-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1.5px solid #38bdf8;
+      background: #2c3545;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    /* Navbar blur - match base exactly but with opacity */
+    .navbar {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(44, 53, 69, 0.85);
+    }
+
+    /* Scroll indicator */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      z-index: 999;
+      background: linear-gradient(90deg, #38bdf8, #e8c99a);
+      transition: width 0.1s;
+    }
+
+    /* Underline link animation */
+    .link-line {
+      position: relative;
+      display: inline-block;
+    }
+
+    .link-line::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #38bdf8;
+      transition: width 0.25s ease;
+    }
+
+    .link-line:hover::after {
+      width: 100%;
+    }
+
+    /* Contact row hover */
+    .contact-row {
+      transition: background 0.2s;
+      border-radius: 8px;
+    }
+
+    .contact-row:hover {
+      background: #343f52;
+    }
+
+    /* Leetcode/GitHub stat card */
+    .stat-card {
+      border: 1px solid #45536c;
+      border-radius: 12px;
+      padding: 20px 24px;
+      background: #343f52;
+    }
+  </style>
 </head>
 
+<body class="bg-base min-h-screen font-body antialiased">
 
-<body>
-    <iframe src="bg/index.html" id="background-frame" scrolling="no" style="height: 100vh; width: 100vw;"></iframe>
-    <div class="scrollarea">
-        <!-- <div class="load">
-            <div>
-                <h1>Welcome</h1>
-                <img src="./images/preloader.gif" alt="">
-                <h1>Loading...</h1>
-            </div>
-        </div> -->
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress" style="width:0%"></div>
 
-        <div class="nav" id="nav">
-            <div class="nav-link">
-                <a href="#home" class="nav-link home">
-                    <img src="./images/shravan_logo.png" alt="">
-                </a>
-            </div>
-            <div>
-                <div class="menu"></div>
-            </div>
-            <div class="nav-link">
-                <div>
-                    <a href="#about" >
-                        <div>
-                            <h3>ABOUT</h3>
-                        </div>
-                    </a>                        
+  <!-- ─── NAVBAR ─────────────────────────────────────────── -->
+  <nav class="navbar fixed top-0 left-0 right-0 z-50 border-b border-border">
+    <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+      <!-- Logo / name -->
+      <a href="#home"
+        class="font-display font-semibold text-text text-sm tracking-wide hover:text-accent transition-colors">
+        Shravan singh<span class="text-accent">.</span>
+      </a>
 
-                    <a href="#github" >
-                        <div>
-                            <h3>GITHUB</h3>
-                        </div>
-                    </a>
-
-                    <a href="#projects" >
-                        <div>
-                            <h3>PROJECTS</h3>
-                        </div>
-                    </a>
-
-                    <a href="#skills" >
-                        <div>
-                            <h3>SKILLS</h3>
-                        </div>
-                    </a>
-                    
-                    <a href="#contact" >
-                        <div>
-                            <h3>CONTACT</h3>
-                        </div>
-                    </a>
-
-                    <a id="resume-button-1" href="https://drive.google.com/uc?export=download&id=1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo
-">
-                        <div onclick="resume()">
-                            <h3 id="resume-link-1">RESUME</h3>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
+      <!-- Nav links -->
+      <div class="hidden md:flex items-center gap-7 text-sm font-mono text-muted">
+        <div class="nav-item flex flex-col items-center gap-1" id="nav-about">
+          <a href="#about" class="hover:text-text transition-colors">About</a>
+          <div class="nav-dot"></div>
         </div>
-
-        <div class="home-section" id="home">
-            <div>
-                <a href=""></a>
-                <img src="./images/shravan_profile.jpeg" alt="">
-                <h1>SHRAVAN</h1>
-                <p>A Creative Full stack web developer</p>
-                <!-- <div class="scroll-text">SCROLL ME FAST OR SLOW</div> -->
-
-            </div>
+        <div class="nav-item flex flex-col items-center gap-1" id="nav-experience">
+          <a href="#experience" class="hover:text-text transition-colors">Experience</a>
+          <div class="nav-dot"></div>
         </div>
-
-        <div id="about" class="about section">
-            <div>
-                <section class="about section"></section>
-                <img class="home-img" src="./images/shravan_profile.png" alt="">
-            </div>
-            <div id="detail" class="about">
-                <h3>DISCOVER</h3>
-                <h1 id ="about about section">ABOUT ME</h1>
-                <p id="user-detail-intro" class="section">
-                    Creative web developer, dedicated to developing and optimizing interactive user friendly and feature rich websites.
-                    <br>
-                    Proficient in assortment of technologies including JavaScript, NodeJS, Express and MongoDB.
-                    <br>
-                    Equipped with a diverse and promising skillset.
-                </p>
-                <div class="details">
-                    <div>
-                        <p id="user-detail-name">
-                            Name : Shravan
-                        </p>
-                        <p>
-                            Phone : <a href="tel:+919311529750">+91 9311529750</a>
-                        </p>
-                        <p>
-                            DOB : 12-08-2003
-                        </p>
-                        <p>
-                            Location : <a href="https://goo.gl/maps/b7vPeryhptjAse2y5" target="_blank">New Delhi, India</a>
-                        </p>
-                        
-                    </div>
-                    <div>
-
-                        <p>
-                            Email : <a class="gmail" href="mailto:sighshravan1208@gmail.com">singhshravan1208@gmail.com</a>
-                        </p>
-
-                        <p>
-                            LinkedIn : <a href="https://www.linkedin.com/in/shrvn12/" target="_blank">shrvn12</a>
-                        </p>
-
-                        <p>
-                            Github : <a href="https://www.github.com/shrvn12" target="_blank">shrvn12</a>
-                        </p>
-
-                        <p>
-                            X : <a href="https://twitter.com/shrvn_12" target="_blank">shrvn_12</a>
-                        </p>
-                    </div>
-                </div>
-                
-                <a id="resume-button-2" class="nav-link resume" href="https://drive.google.com/uc?export=download&id=1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo
-" target="_blank">
-                    <button onclick="resume2()" id="resume-link-2">Download Resume</button>
-                </a> 
-                
-            </div>
-            <h1 id="hide">About</h1>
+        <div class="nav-item flex flex-col items-center gap-1" id="nav-projects">
+          <a href="#projects" class="hover:text-text transition-colors">Projects</a>
+          <div class="nav-dot"></div>
         </div>
-
-        <div class="github" id="github">
-            <div>
-                <div>
-                    <div>
-                        <h1>My GitHub Stats</h1>
-                    </div>
-                    <div>
-                        <img src="./images/octocat.gif" alt="">
-                        <h2 class="githubid"><a href="https://github.com/shrvn12" target="_blank">github.com/shrvn12</a></h2>
-
-                        <img loading="lazy" id="github-stats-card"  alt="shrvn12's GitHub Stats" src="https://github-readme-stats.vercel.app/api?username=shrvn12" />
-
-                        <img loading="lazy" alt="shrvn12's GitHub Stats" src="https://awesome-github-stats.azurewebsites.net/user-stats/shrvn12?cardType=github&theme=tokyonight&preferLogin=false" />
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <img id="github-top-langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shrvn12&layout=compact&theme=dark" alt="">
-                    </div>
-                    
-                    <div>
-                        <img id="github-streak-stats" src="https://streak-stats.demolab.com/?user=shrvn12&theme=dark" alt=""> 
-                    </div>
-                    
-                    <div class="calendar">
-                        <!-- Loading stuff -->
-                        Loading the data just for you.
-                    </div>
-                    
-                </div>
-            </div>
+        <div class="nav-item flex flex-col items-center gap-1" id="nav-stats">
+          <a href="#stats" class="hover:text-text transition-colors">Stats</a>
+          <div class="nav-dot"></div>
         </div>
-
-        <div class="projects-section" id="projects">
-            <div>
-                <!-- <h1 class="scroll-text">My Projects</h1> -->
-                <div class="velocity-container">
-                <div class="velocity-track" id="velocity-track">
-                    <span>⚡ My Projects ✨</span>
-                    <span>⚡ My Projects ✨</span>
-                    <span>⚡ My Projects ✨</span>
-                    <span>⚡ My Projects ✨</span>
-                    <span>⚡ My Projects ✨</span>
-                    <span>⚡ My Projects ✨</span>
-                    <span>⚡ My Projects ✨</span>
-                    <span>⚡ My Projects ✨</span>
-                    <span>⚡ My Projects ✨</span>
-                    <span>⚡ My Projects ✨</span>
-                    <span>⚡ My Projects ✨</span>
-                </div>
-                </div>
-
-
-            </div>
-            <div class="gallery">
-
-                  <div class="project-card">
-                    <div class="image">
-                        <a href="https://at12.vercel.app/" target="_blank">
-                            <img src="./images/at12.png" alt="">
-                        </a>
-                    </div>
-                    <div class="info">
-                        <div>
-                            <h3 class="project-title">AT12</h3>
-                            <p class="project-description">
-                                Music streaming site
-                                <br>
-                                An application that streams music and lyrics from various sources.
-                                <br>
-                                Teck Stacks:
-                                <li>VueJs</li>
-                                <li>NodeJs</li>
-                                <li>FireBase</li>
-                                <li>Google data API</li>
-                            </p>
-                        </div>
-                        <div class="projectsbutton">
-                            <a class="project-deployed-link" href="https://at12.vercel.app/" target="_blank">
-                                <button>Live</button>
-                            </a>
-
-                            <!-- <a target="_blank">
-                                <button>Video</button>
-                            </a> -->
-
-                            <a class="project-github-link" href="https://github.com/shrvn12/at12" target="_blank">
-                                <button>GitHub</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="image">
-                        <a href="https://thetechproject.vercel.app/" target="_blank">
-                            <img src="./images/thetechproject.png" alt="">
-                        </a>
-                    </div>
-                    <div class="info">
-                        <div>
-                            <h3 class="project-title">TTP</h3>
-                            <p class="project-description">
-                                An website built individually for viewing and selecting tech products.
-                                <br>
-                                Tech Stacks:
-                                <!-- <ul class="project-tech-stack"> -->
-                                    <li>HTML & CSS</li>
-                                    <li>JavaScript</li>
-                                    <li>NodeJS</li>
-                                    <li>MongoDB</li>
-                                    <li>HBS</li>
-                                <!-- </ul> -->
-                            </p>
-                        </div>
-                        <div class="projectsbutton">
-                            <a class="project-deployed-link" href="https://thetechproject.vercel.app/" target="_blank">
-                                <button>Live</button>
-                            </a>
-
-                            <a href="https://drive.google.com/file/d/1KM6-AMy6qDdpMhI1nOqVEpr40Ay3avUR/view?usp=share_link" target="_blank">
-                                <button>Video</button>
-                            </a>
-
-                            <a class="project-github-link" href="https://github.com/shrvn12/The_tech_project" target="_blank">
-                                <button>GitHub</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="image">
-                        <a href="https://aquamarine-mooncake-80841d.netlify.app/" target="_blank">
-                            <img src="./images/zeestore.jpeg" alt="">
-                        </a>
-                        <!-- <img src="./images/zeestore.jpeg" alt=""> -->
-                    </div>
-                    <div class="info">
-                        <div>
-                            <h3 class="project-title">Zee Store</h3>
-                            <p class="project-description">
-                                Clone of <a href="https://www.zara.com" target="_blank">Zara.com</a> i'e an E-Commerce website
-                                <br>
-                                Built individually within 5 days.
-                                <br>
-                                Tech Stacks:
-                                <!-- <ul class="project-tech-stack"> -->
-                                    <li>HTML</li>
-                                    <li>CSS</li>
-                                    <li>JavaScript</li>
-                                <!-- </ul> -->
-                            </p>
-                        </div>
-                        <div class="projectsbutton">
-                            <a class="project-deployed-link" href="https://aquamarine-mooncake-80841d.netlify.app/" target="_blank">
-                                <button>Live</button>
-                            </a>
-
-                            <a href="https://drive.google.com/file/d/1xsPbNpu96tlxCZKRaSfvL0G9FIUc1-5v/view?usp=share_link" target="_blank">
-                                <button>Video</button>
-                            </a>
-
-                            <a class="project-github-link" href="https://github.com/shrvn12/apathetic-airplane-7155" target="_blank">
-                                <button>GitHub</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="image">
-                        <a href="https://soundaryaa.netlify.app/" target="_blank">
-                            <img src="./images/saundarya.png" alt="">
-                        </a>
-                    </div>
-                    <div class="info">
-                        <div>
-                            <h3 class="project-title">Soundarya</h3>
-                            <p class="project-description">
-                                Fully functional clone of <a href="https://www.bathandbodyworks.in/">Bath and body works</a>
-                                <br>
-                                Built collaboratively with a group of 5 members within a span of 7 days.
-                                <br>
-                                Tech stacks:
-                                <ul class="project-tech-stack">
-                                    <li>HTML</li>
-                                    <li>CSS</li>
-                                    <li>JavaScript</li>
-                                </ul>
-                            </p>
-                        </div>
-                        <div class="projectsbutton">
-                            <a class="project-deployed-link" href="https://soundaryaa.netlify.app/" target="_blank">
-                                <button>Live</button>
-                            </a>
-
-                            <a href="https://drive.google.com/file/d/1woZmoBbar_j0sV-TEwrty2U4qYbgmAam/view" target="_blank">
-                                <button>Video</button>
-                            </a>
-
-                            <a class="project-github-link" href="https://github.com/Ajay84sia/unbecoming-ray-3277" target="_blank">
-                                <button>GitHub</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- <div class="project-card">
-                    <div class="image">
-                        <a href="https://tooth-tracker.netlify.app/" target="_blank">
-                            <img src="./images/tooth_tracker.png" alt="">
-                        </a>
-                    </div>
-                    <div class="info">
-                        <div>
-                            <h3 class="project-title">Tooth Tracker</h3>
-                            <p class="project-description">
-                                Dental care System webite.
-                                <br>
-                                Built collaboratively with a team of 5 members within 5 days
-                                <br>
-                                Teck Stacks:
-                                <li>HTML & CSS</li>
-                                <li>JavaScript</li>
-                                <li>NodeJS</li>
-                                <li>MySQL</li>
-                            </p>
-                        </div>
-                        <div class="projectsbutton">
-                            <a class="project-deployed-link" href="https://tooth-tracker.netlify.app/" target="_blank">
-                                <button>Live</button>
-                            </a>
-
-                            <a href="https://drive.google.com/file/d/1mljv-xCNM4laY_8g03inmtCgBzuCHyrG/view?usp=sharing" target="_blank">
-                                <button>Video</button>
-                            </a>
-
-                            <a class="project-github-link" href="https://github.com/Yunuslala/uninterested-weather-2204" target="_blank">
-                                <button>GitHub</button>
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
-
-            </div>
+        <div class="nav-item flex flex-col items-center gap-1" id="nav-contact">
+          <a href="#contact" class="hover:text-text transition-colors">Contact</a>
+          <div class="nav-dot"></div>
         </div>
+      </div>
 
-        <div class="skills-section" id="skills">
-            <div class="skillset">
-                <h1 class="-name">My Skillset + Toolset</h1>
-            </div>
-            <div class="skilldiv">
-                <div class="skills-card">
-                    <h1 class="skills-card-name">Tech</h1>
-                    <img class="skills-card-img" src="" alt="">
-                    <div class="techskills">
-                        <div>
-                            <a href="https://html.com/" target="_blank">
-                                <img title="HTML" src="https://www.svgrepo.com/show/452228/html-5.svg" alt="" style="scale: 0.9;">
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="https://css.com/" target="_blank">
-                                <img title="CSS" src="https://www.svgrepo.com/show/349330/css3.svg" alt="" style="scale: 0.8;">
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="https://www.javascript.com/" target="_blank">
-                                <img   title="JavaScript" src="https://www.svgrepo.com/show/353925/javascript.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="margin">
-                            <a href="https://nodejs.org/en/" target="_blank">
-                                <img   title="NodeJS" src="./images/nodejs.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="https://expressjs.com/" target="_blank">
-                                <img  title="Express" src="./images/icons8-express-js.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="https://www.mongodb.com/" target="_blank">
-                                <img title="MongoDB" src="./images/MongoDB_Logo.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="margin">
-                            <a href="https://socket.io/" target="_blank">
-                                <img title="Socket.io" src="./images/socket-dot-io-svgrepo-com.svg" alt="">
-                            </a>
-                        </div>
-                        
-                        <div class="margin">
-                            <a href="https://redis.io/" target="_blank">
-                                <img  loading="lazy" title="Redis" src="./images/redis-svgrepo-com.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="https://www.mysql.com/" target="_blank">
-                                <img title="MySQL" src="https://www.svgrepo.com/show/303251/mysql-logo.svg" alt="" style="scale: 1.2;">
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="https://www.typescriptlang.org/" target="_blank">
-                                <img title="TypeScript" src="./images/typescript-logo-svgrepo-com.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="margin">
-                            <a href="https://aws.amazon.com/" target="_blank">
-                                <img title="AWS" src="./images/aws-svgrepo-com (3).svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="margin">
-                            <a href="https://firebase.google.com/" target="_blank">
-                                <img title="Firebase" src="https://www.svgrepo.com/show/373595/firebase.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="https://react.dev/" target="_blank">
-                                <img title="React" src="https://www.svgrepo.com/show/452092/react.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="https://vuejs.org/" target="_blank">
-                                <img title="Vue" src="https://www.svgrepo.com/show/493625/vue-vuejs-javascript-js-framework.svg" alt="">
-                            </a>
-                        </div>                        
-                        
-                        <div class="">
-                            <a href="https://angular.dev/" target="_blank">
-                                <img title="Angular" src="https://www.svgrepo.com/show/452156/angular.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="https://python.org" target="_blank">
-                                <!-- <p  class="tobeadded">To be added</p> -->
-                                <img title="Python" src="./images/python-svgrepo-com.svg" alt="">
-                            </a>
-                        </div>
-
-                    </div>
-                    
-                </div>
-                <div class="skills-card">
-                    <h1 class="skills-card-name" id="hide">Tech</h1>
-                    <img class="skills-card-img" id="hide" src="" alt="">
-                    <div class="content2">
-
-                        <h1>
-                            3+
-                        </h1>
-                        <h2>
-                            Years of hands on coding experience
-                        </h2>
-                        <h1>
-                            650+
-                        </h1>
-                        <h2>Questions on DSA conquered.</h2>
-                        <h1>
-                            10+
-                        </h1>
-                        <h2>Projects completed individually and with group</h2>
-                        <h1>Skillset</h1>
-                        <!-- <ul> -->
-                            <li>Problem Solving</li>
-                            <li>Creativity</li>
-                            <li>Adaptability</li>
-                            <li>Teamwork</li>
-                            <li>Remote collaboration</li>
-                        <!-- </ul> -->
-                    </div>
-                </div>
-                <div class="skills-card">
-                    
-                    <h1 class="skills-card-name">Toolset</h1>
-                    <img class="skills-card-img" src="" alt="">
-                    <div class="techskills" class="">
-                        <div class="margin">
-                            <a href="https://code.visualstudio.com/" target="_blank">
-                                <img loading="lazy" title="Visual Studio Code" src="./images/vs-code-logo.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="margin">
-                            <a href="https://github.com/" target="_blank">
-                                <img loading="lazy" title="Github" src="./images/github-142-svgrepo-com.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="https://www.npmjs.com/" target="_blank">
-                                <img loading="lazy" title="npm" src="./images/npm-logo.png" alt="">
-                            </a>
-                        </div>
-
-                        
-                        <div class="">
-                            <a href="https://codepen.io/" target="_blank">
-                                <img loading="lazy" title="Codepen" src="./images/codepen-svgrepo-com.svg" alt="">
-                            </a>
-                        </div>
-                        
-                        <div class="">
-                            <a href="https://replit.com/" target="_blank">
-                                <img loading="lazy" title="Replit" src="./images/replit.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="margin">
-                            <a href="https://vercel.com/" target="_blank">
-                                <img loading="lazy" title="Vercel" src="./images/vercel-fill-svgrepo-com.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="margin">
-                            <a href="https://www.netlify.com/" target="_blank">
-                                <img loading="lazy" title="Netlify" src="./images/netlify-logo.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="https://codesandbox.io/" target="_blank">
-                                <img loading="lazy" title="Codesandbox" src="./images/codesandbox-svgrepo-com.svg" alt="">
-                            </a>
-                        </div>
-                        
-                        <div class="margin">
-                            <a href="https://railway.app/" target="_blank">
-                                <img loading="lazy" title="Railway" src="./images/railway_logo.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="">
-                            <a href="https://git-scm.com/" target="_blank">
-                                <img loading="lazy" title="git" src="./images/git_logo.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="margin">
-                            <a href="https://planetscale.com/" target="_blank">
-                                <img loading="lazy" title="planetscale" src="./images/planetscale.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="margin">
-                            <a href="https://miro.com/" target="_blank">
-                                <img loading="lazy" title="Miro" src="./images/miro-svgrepo-com.svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="margin">
-                            <a href="https://www.postman.com/" target="_blank">
-                                <img loading="lazy" title="Postman" id="" src="./images/postman-icon-svgrepo-com (1).svg" alt="">
-                            </a>
-                        </div>
-
-                        <div class="margin">
-                            <a href="https://slack.com/intl/en-in/" target="_blank">
-                                <img loading="lazy" title="Slack" src="./images/slack-logo.png" alt="">
-                            </a>
-                        </div>
-
-                        <div class="margin">
-                            <a href="https://www.microsoft.com/en-us/edge?exp=e507&form=MA13FJ" target="_blank">
-                                <img loading="lazy" title="Figma" src="https://www.svgrepo.com/show/452202/figma.svg" alt="">
-                            </a>
-                        </div>
-                        
-                        <div>
-                            <a href="https://workspace.google.com/products/calendar" target="_blank">
-                                <img loading="lazy" title="Google Calendar" src="./images/google-calendar-svgrepo-com.svg" alt="">
-                            </a>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="contact-section" id="contact">
-            <div class="message">
-                <h1>Let's start working together</h1>
-                <p>"Pleasure in the job puts perfction in the work"</p>
-            </div>
-            <div class="links">
-                <div>
-                    <div>
-                        <a id="contact-linkedin"  href="https://www.linkedin.com/in/shrvn12/" target="_blank">
-                            <img id="linkedin" src="./images/linkedin_logo.png" alt="">
-                        </a>
-                    </div>
-
-                    <div>
-                        <a id="contact-github" href="https://github.com/shrvn12" target="_blank">
-                            <img src="./images/github-logo.png" alt="">  
-                        </a>
-                    </div>
-
-                    <div>
-                        <a href="https://in.pinterest.com/shrvn12/" target="_blank">
-                            <img src="./images/pinterest_logo.png" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="email">
-                <div>
-                    <p id="contact-email">Email : <a href="mailto:singhshravan1208@gmail.com">singhshravan1208@gmail.com</a></p>
-                    <p id="contact-phone">Ph: <a href="tel:+919311529750">+91 9311529750</a></p>
-                </div>
-            </div>
-            
-        </div>
+      <!-- Social links + Resume button -->
+      <div class="flex items-center gap-3">
+        <a href="mailto:singhshravan1208@gmail.com" aria-label="Email"
+          class="text-muted hover:text-text transition-colors">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+        </a>
+        <a href="https://github.com/shrvn12" target="_blank" aria-label="GitHub"
+          class="text-muted hover:text-text transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/shrvn12" target="_blank" aria-label="LinkedIn"
+          class="text-muted hover:text-text transition-colors">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+        </a>
+        <!-- Resume button -->
+        <a id="nav-resume-btn" href="https://drive.google.com/file/d/1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo/view"
+          target="_blank"
+          class="ml-1 flex items-center gap-1.5 px-3 py-1 rounded-md border border-accent text-accent font-mono text-xs font-semibold hover:bg-accent hover:text-base transition-all duration-200">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="12" y1="18" x2="12" y2="12" />
+            <line x1="9" y1="15" x2="15" y2="15" />
+          </svg>
+          Resume
+        </a>
+      </div>
     </div>
+  </nav>
+
+  <!-- ─── MAIN CONTENT ───────────────────────────────────── -->
+  <main class="max-w-5xl mx-auto px-6 pt-28">
+
+    <!-- ═══════════════════════════════════════════
+       HOME
+  ═══════════════════════════════════════════ -->
+    <section id="home" class="min-h-[85vh] flex flex-col justify-center pb-12 reveal">
+      <div class="grid md:grid-cols-[1.3fr_0.7fr] gap-12 items-center">
+        <!-- Left: Text content -->
+        <div class="flex flex-col justify-center">
+          <div class="mb-4">
+            <span class="font-mono text-sm text-accent tracking-widest uppercase font-semibold">software engineer</span>
+          </div>
+
+          <h1 class="font-display font-bold text-text leading-[1.08] mb-6"
+            style="font-size: clamp(2.8rem, 6vw, 4.8rem)">
+            hi, shravan<br>
+            <span class="cursor">here</span>
+          </h1>
+
+          <p class="text-muted text-lg font-normal max-w-xl leading-relaxed mb-10">
+            I build things for the web - from reliable backend systems to interfaces people enjoy using.
+            <br>
+            I love shipping products that actually work.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="#projects"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-accent text-accent font-display text-sm font-medium hover:bg-accent hover:text-base transition-all duration-200">
+              View work
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 6h8M6 2l4 4-4 4" />
+              </svg>
+            </a>
+            <a href="#contact"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border text-muted font-display text-sm font-medium hover:border-faint hover:text-text transition-all duration-200">
+              Get in touch
+            </a>
+          </div>
+
+          <!-- Availability badge -->
+          <div class="mt-14 flex items-center gap-2.5">
+            <!-- <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-50"
+                style="background:#4ade80"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5" style="background:#4ade80"></span> -->
+            </span>
+            <!-- <span class="font-mono text-sm text-muted font-medium">Always building...</span> -->
+          </div>
+        </div>
+
+        <!-- Right: Image -->
+        <div class="flex justify-center items-center relative">
+          <!-- Glow Backing -->
+          <div class="absolute w-72 h-72 rounded-full bg-accent/10 blur-2xl pointer-events-none"></div>
+
+          <!-- Avatar Frame -->
+          <div
+            class="relative w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden border border-border bg-surface transition-all duration-300 hover:scale-[1.02] hover:border-accent">
+            <img src="images/profile.png" alt="Shravan Singh" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider my-2"></div>
+
+    <!-- ═══════════════════════════════════════════
+       ABOUT & SKILLS
+  ═══════════════════════════════════════════ -->
+    <section id="about" class="py-24 reveal">
+      <div class="grid md:grid-cols-[1fr_1.1fr] gap-16">
+        <!-- Left Column: About (Official Textual style, including Education) -->
+        <div class="space-y-6">
+          <div>
+            <h2 class="font-display font-semibold text-text text-xl mb-6">About Me</h2>
+            <div class="space-y-8">
+              <div>
+                <p class="text-muted text-lg leading-8 mb-6 max-w-2xl">
+                  Building <span class="text-text font-medium">full-stack web applications</span> and
+                  <span class="text-text font-medium">backend systems</span>. I enjoy solving problems,
+                  creating reliable products, and writing clean, maintainable code.
+                </p>
+
+                <p class="text-muted text-lg leading-8 max-w-2xl">
+                  Currently pursuing <span class="text-accent font-medium">B.Tech in Computer Science</span>
+                  at <span class="text-accent font-semibold">K.R. Mangalam University</span>
+                  (2023-2027).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Skills (Official Textual style) -->
+        <div>
+          <h2 class="font-display font-semibold text-text text-xl mb-8">Technologies i have been using</h2>
+
+          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-10">
+            <div>
+              <h3 class="font-mono text-xs text-accent uppercase tracking-wider font-semibold mb-4">Languages</h3>
+              <ul class="space-y-3 text-sm text-muted">
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> TypeScript
+                </li>
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> JavaScript
+                </li>
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> Python
+                </li>
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> C++
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-mono text-xs text-accent uppercase tracking-wider font-semibold mb-4">Frontend</h3>
+              <ul class="space-y-3 text-sm text-muted">
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> Vue.js
+                </li>
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> Angular
+                </li>
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> Tailwind CSS
+                </li>
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> Vite
+                </li>
+              </ul>
+            </div>
+
+            <div class="sm:col-span-2">
+              <h3 class="font-mono text-xs text-accent uppercase tracking-wider font-semibold mb-4">Backend &
+                Infrastructure</h3>
+              <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-muted">
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> Node.js & Express
+                </li>
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> WebSocket
+                </li>
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> MongoDB
+                </li>
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> NeonDB / PostgreSQL
+                </li>
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> Firebase Functions
+                </li>
+                <li class="flex items-center gap-2.5 font-medium">
+                  <span class="text-accent font-semibold text-sm">/</span> Cloudinary / Vercel / Render
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+       EXPERIENCE
+  ═══════════════════════════════════════════ -->
+    <section id="experience" class="py-24 reveal">
+      <h2 class="font-display font-semibold text-text text-xl mb-12">Experience</h2>
+
+      <div class="timeline-track pl-7 space-y-10">
+
+        <!-- Entry 1 -->
+        <div class="flex gap-5">
+          <div class="timeline-dot mt-1.5"></div>
+          <div class="flex-1 pb-2">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1">
+              <h3 class="font-display font-semibold text-text text-base">Associate Software Engineer</h3>
+              <span class="font-mono text-sm text-muted">Jun 2023 – Feb 2025</span>
+            </div>
+            <p class="text-accent text-sm font-mono mb-3 font-medium">Provakil · Full-time</p>
+            <ul class="space-y-1.5">
+              <li class="text-muted text-sm leading-relaxed flex gap-2">
+                <span class="text-faint mt-1.5 shrink-0">-</span>
+                Built and enhanced full-stack application features as part of a cross-functional development team.
+              </li>
+              <li class="text-muted text-sm leading-relaxed flex gap-2">
+                <span class="text-faint mt-1.5 shrink-0">-</span>
+                Worked on Vue.js frontend development and built backend services using Node.js, Python, and RabbitMQ.
+              </li>
+              <li class="text-muted text-sm leading-relaxed flex gap-2">
+                <span class="text-faint mt-1.5 shrink-0">-</span>
+                Hadled database synchronisation and migration between clients DB and organisation DB.
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mt-4">
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Vue.js</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Node.js</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">RabbitMQ</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Python</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Entry 2 -->
+        <div class="flex gap-5">
+          <div class="timeline-dot mt-1.5"></div>
+          <div class="flex-1 pb-2">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1">
+              <h3 class="font-display font-semibold text-text text-base">Software Development Trainee</h3>
+              <span class="font-mono text-sm text-muted">Jun 2022 – May 2023</span>
+            </div>
+            <p class="text-accent text-sm font-mono mb-3 font-medium">Masai School · Trainee</p>
+            <ul class="space-y-1.5">
+              <li class="text-muted text-sm leading-relaxed flex gap-2">
+                <span class="text-faint mt-1.5 shrink-0">-</span>
+                Completed a 7-month full-stack development program, accruing 1,200+ hours of practical coding and
+                delivering 5 projects.
+              </li>
+              <li class="text-muted text-sm leading-relaxed flex gap-2">
+                <span class="text-faint mt-1.5 shrink-0">-</span>
+                Learnt system design, CI/CD and solved 800+ algorithmic challenges.
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mt-4">
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Mongo DB</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Express JS</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">React JS</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Git</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">System Design</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════════ -->
+    <section id="projects" class="py-24 reveal">
+      <div class="flex justify-between items-center mb-12">
+        <h2 class="font-display font-semibold text-text text-xl">Projects</h2>
+        <a href="https://github.com/shrvn12" target="_blank"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-accent text-accent font-display text-sm font-medium hover:bg-accent hover:text-base transition-all duration-200">
+          view all projects
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 6h8M6 2l4 4-4 4" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+
+        <!-- Project 1 -->
+        <div class="project-card border border-border rounded-2xl overflow-hidden bg-surface flex flex-col">
+          <!-- Hero image placeholder -->
+          <div class="w-full aspect-[16/8] relative overflow-hidden"
+            style="background: linear-gradient(135deg, #1e1e1c 0%, #252521 50%, #1e1d1a 100%)">
+            <!-- Decorative grid lines -->
+            <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 200"
+              preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <pattern id="g1" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M40 0H0V40" fill="none" stroke="#38bdf8" stroke-width="0.5" />
+                </pattern>
+              </defs>
+              <rect width="400" height="200" fill="url(#g1)" />
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="font-mono text-xs text-muted opacity-60"><img src="images/kings.png" alt=""></span>
+            </div>
+          </div>
+
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <h3 class="font-display font-semibold text-text text-base">Kings messenger</h3>
+              <div class="flex gap-2 shrink-0 mt-0.5">
+                <a href="https://github.com/shrvn12/kings_frontend" target="_blank"
+                  class="text-muted hover:text-accent transition-colors" title="Frontend">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                  </svg>
+                </a>
+                <a href="https://github.com/shrvn12/kings_backend/" target="_blank"
+                  class="text-muted hover:text-accent transition-colors" title="Backend">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M9 9h6M9 12h6M9 15h4" />
+                  </svg>
+                </a>
+                <a href="https://kings-messenger.vercel.app" target="_blank"
+                  class="text-muted hover:text-accent transition-colors" title="Live demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <p class="text-muted text-sm leading-relaxed mb-4 flex-1">
+              A real-time messaging app with WebSockets, JWT authentication, and REST APIs, featuring live
+              presence tracking, message status updates, and end-to-end encryption.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Angular</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Node.js</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">WebSocket</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card border border-border rounded-2xl overflow-hidden bg-surface flex flex-col">
+          <div class="w-full aspect-[16/8] relative overflow-hidden"
+            style="background: linear-gradient(135deg, #1c1e1e 0%, #202224 50%, #1a1d1e 100%)">
+            <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 200"
+              preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <pattern id="g2" width="30" height="30" patternUnits="userSpaceOnUse">
+                  <circle cx="15" cy="15" r="0.8" fill="#38bdf8" />
+                </pattern>
+              </defs>
+              <rect width="400" height="200" fill="url(#g2)" />
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="font-mono text-xs text-muted opacity-60"><img src="images/at12.jpg" alt=""></span>
+            </div>
+          </div>
+
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <h3 class="font-display font-semibold text-text text-base">At12</h3>
+              <div class="flex gap-2 shrink-0 mt-0.5">
+                <a href="https://github.com/shrvn12/at12" target="_blank"
+                  class="text-muted hover:text-accent transition-colors" title="Frontend">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                  </svg>
+                </a>
+                <a href="https://github.com/shrvn12/at12_backend" target="_blank"
+                  class="text-muted hover:text-accent transition-colors" title="Backend">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M9 9h6M9 12h6M9 15h4" />
+                  </svg>
+                </a>
+                <a href="https://at12.vercel.app" target="_blank" class="text-muted hover:text-accent transition-colors"
+                  title="Live demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <p class="text-muted text-sm leading-relaxed mb-4 flex-1">
+              A full-stack music streaming platform with YouTube integration, secure authentication, queue-based
+              playback, playlists, synced lyrics, and real-time player state updates.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Vue.js</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Node.js</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Youtube Data API</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card border border-border rounded-2xl overflow-hidden bg-surface flex flex-col">
+          <div class="w-full aspect-[16/8] relative overflow-hidden"
+            style="background: linear-gradient(135deg, #1d1c1e 0%, #232123 50%, #1a191e 100%)">
+            <svg class="absolute inset-0 w-full h-full opacity-15" viewBox="0 0 400 200"
+              preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <pattern id="g3" width="60" height="60" patternUnits="userSpaceOnUse">
+                  <path d="M0 30 L30 0 L60 30 L30 60 Z" fill="none" stroke="#38bdf8" stroke-width="0.4" />
+                </pattern>
+              </defs>
+              <rect width="400" height="200" fill="url(#g3)" />
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="font-mono text-xs text-muted opacity-60"><img src="images/ocr.png" alt=""></span>
+            </div>
+          </div>
+
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <h3 class="font-display font-semibold text-text text-base">DocScan OCR</h3>
+              <div class="flex gap-2 shrink-0 mt-0.5">
+                <a href="https://github.com/shrvn12/ocr_frontend" target="_blank"
+                  class="text-muted hover:text-accent transition-colors" title="GitHub">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                  </svg>
+                </a>
+                <a href="https://github.com/shrvn12/ocr_backend" target="_blank"
+                  class="text-muted hover:text-accent transition-colors" title="Backend">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M9 9h6M9 12h6M9 15h4" />
+                  </svg>
+                </a>
+                <a href="https://ocr-frontend-efr1.onrender.com" target="_blank"
+                  class="text-muted hover:text-accent transition-colors" title="Live demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <p class="text-muted text-sm leading-relaxed mb-4 flex-1">
+              Built an OCR-powered document processing platform that automates data extraction, review workflows, and
+              record management. Includes offline capture, background processing, audit logs, and searchable document
+              history.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Vue.js</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Node.js</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">IndexedDB</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Neon DB</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Cloudinary</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card border border-border rounded-2xl overflow-hidden bg-surface flex flex-col">
+          <div class="w-full aspect-[16/8] relative overflow-hidden"
+            style="background: linear-gradient(135deg, #1c1e1c 0%, #212421 50%, #1a1e1a 100%)">
+            <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 200"
+              preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <pattern id="g4" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <line x1="10" y1="0" x2="10" y2="20" stroke="#38bdf8" stroke-width="0.3" />
+                  <line x1="0" y1="10" x2="20" y2="10" stroke="#38bdf8" stroke-width="0.3" />
+                </pattern>
+              </defs>
+              <rect width="400" height="200" fill="url(#g4)" />
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="font-mono text-xs text-muted opacity-60"><img src="images/ttp.png" alt=""></span>
+            </div>
+          </div>
+
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <h3 class="font-display font-semibold text-text text-base">TheTechProject</h3>
+              <div class="flex gap-2 shrink-0 mt-0.5">
+                <a href="https://github.com/shrvn12/The_tech_project" target="_blank"
+                  class="text-muted hover:text-accent transition-colors" title="GitHub">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                  </svg>
+                </a>
+                <a href="https://thetechproject.vercel.app" target="_blank"
+                  class="text-muted hover:text-accent transition-colors" title="Live demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <p class="text-muted text-sm leading-relaxed mb-4 flex-1">
+              Built a product discovery platform with secure authentication, advanced product filtering, and
+              personalized wishlists using Node.js, Express, and MongoDB.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">HandleBars</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">MongoDB</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">Node.js</span>
+              <span class="font-mono text-xs text-muted border border-faint rounded px-2.5 py-1">O-Auth</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+       STATS (GitHub + LeetCode)
+  ═══════════════════════════════════════════ -->
+    <section id="stats" class="py-24 reveal">
+      <h2 class="font-display font-semibold text-text text-xl mb-3">Stats</h2>
+      <!-- <p class="text-muted text-sm mb-12">Live data from GitHub &amp; LeetCode.</p> -->
+
+      <div class="grid md:grid-cols-2 gap-8" id="stats-grid">
+
+        <!-- GitHub Card -->
+        <div class="stat-card" id="github-card">
+          <div class="flex items-center gap-2.5 mb-6">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-muted">
+              <path
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+            </svg>
+            <span class="font-mono text-sm text-muted font-semibold">GitHub</span>
+          </div>
+
+          <div id="github-loading" class="text-muted text-sm font-mono animate-pulse">fetching data…</div>
+
+          <div id="github-data" class="hidden">
+            <div class="grid grid-cols-3 gap-4 mb-6">
+              <div>
+                <div class="stat-num font-display font-bold text-text text-2xl" id="gh-repos">-</div>
+                <div class="font-mono text-xs text-muted mt-0.5 font-medium">repos</div>
+              </div>
+              <div>
+                <div class="stat-num font-display font-bold text-text text-2xl" id="gh-followers">-</div>
+                <div class="font-mono text-xs text-muted mt-0.5 font-medium">followers</div>
+              </div>
+              <div>
+                <div class="stat-num font-display font-bold text-text text-2xl" id="gh-stars">-</div>
+                <div class="font-mono text-xs text-muted mt-0.5 font-medium">stars</div>
+              </div>
+            </div>
+
+            <div class="space-y-3" id="gh-langs">
+              <!-- filled by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- LeetCode Card -->
+        <div class="stat-card" id="leetcode-card">
+          <div class="flex items-center gap-2.5 mb-6">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" class="text-muted">
+              <path
+                d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
+            </svg>
+            <span class="font-mono text-sm text-muted font-semibold">LeetCode</span>
+          </div>
+
+          <div id="lc-loading" class="text-muted text-sm font-mono animate-pulse">fetching data…</div>
+
+          <div id="lc-data" class="hidden">
+            <div class="grid grid-cols-3 gap-4 mb-6">
+              <div>
+                <div class="stat-num font-display font-bold text-text text-2xl" id="lc-total">-</div>
+                <div class="font-mono text-xs text-muted mt-0.5 font-medium">solved</div>
+              </div>
+              <div>
+                <div class="stat-num font-display font-bold text-text text-2xl" id="lc-totalsub">-</div>
+                <div class="font-mono text-xs text-muted mt-0.5 font-medium">Total submissions</div>
+              </div>
+              <div>
+                <div class="stat-num font-display font-bold text-text text-2xl" id="lc-acsub">-</div>
+                <div class="font-mono text-xs text-muted mt-0.5 font-medium">Accepted</div>
+              </div>
+            </div>
+
+            <!-- Difficulty bars -->
+            <div class="space-y-3">
+              <div>
+                <div class="flex justify-between mb-1.5">
+                  <span class="font-mono text-xs font-semibold" style="color:#4ade80">easy</span>
+                  <span class="font-mono text-xs text-muted" id="lc-easy-count">0</span>
+                </div>
+                <div class="contrib-bar">
+                  <div class="contrib-fill" id="lc-easy-bar"
+                    style="width:0%;background:linear-gradient(90deg,#4ade80,#86efac)"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1.5">
+                  <span class="font-mono text-xs font-semibold" style="color:#fbbf24">medium</span>
+                  <span class="font-mono text-xs text-muted" id="lc-med-count">0</span>
+                </div>
+                <div class="contrib-bar">
+                  <div class="contrib-fill" id="lc-med-bar"
+                    style="width:0%;background:linear-gradient(90deg,#fbbf24,#fde68a)"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1.5">
+                  <span class="font-mono text-xs font-semibold" style="color:#f87171">hard</span>
+                  <span class="font-mono text-xs text-muted" id="lc-hard-count">0</span>
+                </div>
+                <div class="contrib-bar">
+                  <div class="contrib-fill" id="lc-hard-bar"
+                    style="width:0%;background:linear-gradient(90deg,#f87171,#fca5a5)"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- GitHub Contribution Calendar (via github-readme-stats) -->
+      <div class="mt-8 border border-border rounded-xl p-5 bg-surface overflow-hidden">
+        <p class="font-mono text-sm text-muted mb-4 font-semibold">contribution activity</p>
+        <img
+          src="https://github-readme-activity-graph.vercel.app/graph?username=shrvn12&theme=github-compact&hide_border=true&bg_color=1e1e1e&color=94a3b8&line=38bdf8&point=f8fafc&area=true&area_color=38bdf8"
+          alt="GitHub contribution graph" class="w-full rounded-lg opacity-80"
+          onerror="this.parentElement.innerHTML='<p class=\'font-mono text-xs text-muted text-center py-6\'>Replace username in src to load your contribution graph</p>'" />
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════ -->
+    <section id="contact" class="py-24 pb-32 reveal">
+      <div class="max-w-lg">
+        <h2 class="font-display font-semibold text-text text-xl mb-3">Get in touch</h2>
+        <p class="text-muted text-sm mb-10 leading-relaxed">
+          If you have something in mind, say hi.
+        </p>
+
+        <div class="space-y-1">
+          <a href="mailto:singhshravan1208@gmail.com" class="contact-row flex items-center gap-4 px-3 py-3 group">
+            <div
+              class="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted group-hover:border-accent group-hover:text-accent transition-all">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="font-mono text-xs text-muted mb-0.5 font-semibold">email</div>
+              <div class="text-text text-sm link-line group-hover:text-accent transition-colors font-medium">
+                singhshravan1208@gmail.com</div>
+            </div>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"
+              class="text-muted opacity-0 group-hover:opacity-100 transition-opacity">
+              <path d="M2 6h8M6 2l4 4-4 4" />
+            </svg>
+          </a>
+
+          <a href="tel:+919311529750" class="contact-row flex items-center gap-4 px-3 py-3 group">
+            <div
+              class="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted group-hover:border-accent group-hover:text-accent transition-all">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .9h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="font-mono text-xs text-muted mb-0.5 font-semibold">phone</div>
+              <div class="text-text text-sm link-line group-hover:text-accent transition-colors font-medium">+91
+                9311529750</div>
+            </div>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"
+              class="text-muted opacity-0 group-hover:opacity-100 transition-opacity">
+              <path d="M2 6h8M6 2l4 4-4 4" />
+            </svg>
+          </a>
+
+          <a href="https://linkedin.com/in/shrvn12" target="_blank"
+            class="contact-row flex items-center gap-4 px-3 py-3 group">
+            <div
+              class="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted group-hover:border-accent group-hover:text-accent transition-all">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="font-mono text-xs text-muted mb-0.5 font-semibold">linkedin</div>
+              <div class="text-text text-sm link-line group-hover:text-accent transition-colors font-medium">
+                linkedin.com/in/shrvn12</div>
+            </div>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"
+              class="text-muted opacity-0 group-hover:opacity-100 transition-opacity">
+              <path d="M2 6h8M6 2l4 4-4 4" />
+            </svg>
+          </a>
+
+          <a href="https://github.com/shrvn12" target="_blank"
+            class="contact-row flex items-center gap-4 px-3 py-3 group">
+            <div
+              class="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted group-hover:border-accent group-hover:text-accent transition-all">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="font-mono text-xs text-muted mb-0.5 font-semibold">github</div>
+              <div class="text-text text-sm link-line group-hover:text-accent transition-colors font-medium">
+                github.com/shrvn12</div>
+            </div>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"
+              class="text-muted opacity-0 group-hover:opacity-100 transition-opacity">
+              <path d="M2 6h8M6 2l4 4-4 4" />
+            </svg>
+          </a>
+          <!-- Resume row -->
+          <div class="contact-row flex items-center gap-4 px-3 py-3">
+            <div class="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="12" y1="18" x2="12" y2="12" />
+                <line x1="9" y1="15" x2="15" y2="15" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="font-mono text-xs text-muted mb-0.5 font-semibold">resume</div>
+              <div class="text-text text-sm font-medium">Shravan Singh - Software Engineer</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <a id="resume-view-btn" href="https://drive.google.com/file/d/1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo/view"
+                target="_blank"
+                class="flex items-center gap-1 px-3 py-1.5 rounded-md border border-accent text-accent font-mono text-xs font-semibold hover:bg-accent hover:text-base transition-all duration-200">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+                View
+              </a>
+              <a id="resume-download-btn"
+                href="https://drive.google.com/uc?export=download&id=1q2-ZcMYcWeQoXFp150dEw8LNWl83Ovwo" download
+                class="flex items-center gap-1 px-3 py-1.5 rounded-md border border-border text-muted font-mono text-xs font-semibold hover:border-accent hover:text-accent transition-all duration-200">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-8">
+    <div class="max-w-5xl mx-auto px-6 flex items-center justify-between">
+      <span class="font-mono text-sm text-muted font-medium">© 2025 Shravan Singh</span>
+      <span class="font-mono text-sm text-muted font-medium">built by hand.</span>
+    </div>
+  </footer>
+
+  <!-- ─── SCRIPTS ─────────────────────────────────── -->
+  <script>
+    // ── Scroll progress bar
+    const progressBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      progressBar.style.width = pct + '%';
+    }, { passive: true });
+
+    // ── Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.08 });
+    reveals.forEach(r => revealObs.observe(r));
+
+    // ── Active nav section
+    const sections = ['home', 'about', 'experience', 'projects', 'stats', 'contact'];
+    const navObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        const id = e.target.id;
+        const navEl = document.getElementById('nav-' + id);
+        if (navEl) navEl.classList.toggle('active', e.isIntersecting);
+      });
+    }, { threshold: 0.3 });
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) navObs.observe(el);
+    });
+
+    // ── GitHub stats (replace 'yourusername')
+    const GH_USER = 'shrvn12';
+
+    const CACHE_TTL = 60 * 60 * 1000; // 1 hour in ms
+
+    function renderGitHub({ user, repos }) {
+      const stars = repos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
+      const langCount = {};
+      repos.forEach(r => { if (r.language) langCount[r.language] = (langCount[r.language] || 0) + 1; });
+      const topLangs = Object.entries(langCount).sort((a, b) => b[1] - a[1]).slice(0, 4);
+      const maxLang = topLangs[0]?.[1] || 1;
+
+      document.getElementById('gh-repos').textContent = user.public_repos;
+      document.getElementById('gh-followers').textContent = user.followers;
+      document.getElementById('gh-stars').textContent = stars;
+
+      const langEl = document.getElementById('gh-langs');
+      langEl.innerHTML = topLangs.map(([lang, count]) => `
+        <div>
+          <div class="flex justify-between mb-1.5">
+            <span class="font-mono text-[10px] text-muted">${lang}</span>
+            <span class="font-mono text-[10px] text-muted">${count} repos</span>
+          </div>
+          <div class="contrib-bar"><div class="contrib-fill" style="width:${(count / maxLang * 100).toFixed(0)}%"></div></div>
+        </div>
+      `).join('');
+
+      document.getElementById('github-loading').classList.add('hidden');
+      document.getElementById('github-data').classList.remove('hidden');
+    }
+
+    async function loadGitHub() {
+      try {
+        const cached = localStorage.getItem('gh_data');
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Date.now() - parsed.timestamp < CACHE_TTL) {
+            renderGitHub(parsed.data);
+            return;
+          }
+        }
+
+        const res = await fetch(`https://api.github.com/users/${GH_USER}`);
+        if (!res.ok) throw new Error();
+        const user = await res.json();
+
+        const repoRes = await fetch(`https://api.github.com/users/${GH_USER}/repos?per_page=100`);
+        const repos = repoRes.ok ? await repoRes.json() : [];
+
+        const payload = { user, repos };
+        localStorage.setItem('gh_data', JSON.stringify({ timestamp: Date.now(), data: payload }));
+        renderGitHub(payload);
+      } catch {
+        document.getElementById('github-loading').textContent = 'could not load data - check username.';
+      }
+    }
+
+    // ── LeetCode stats (uses unofficial public API via alfa-leetcode-api)
+    const LC_USER = 'shrvn12';
+
+    function renderLeetCode(data) {
+      const easy = data.easySolved || 0;
+      const medium = data.mediumSolved || 0;
+      const hard = data.hardSolved || 0;
+      const total = data.solvedProblem || (easy + medium + hard);
+      const totalSubmissions = data?.totalSubmissionNum[0]?.submissions;
+      const acSubmissions = data?.acSubmissionNum[0]?.submissions;
+
+      document.getElementById('lc-total').textContent = total;
+      document.getElementById('lc-totalsub').textContent = totalSubmissions;
+      document.getElementById('lc-acsub').textContent = acSubmissions;
+
+      document.getElementById('lc-easy-count').textContent = easy;
+      document.getElementById('lc-med-count').textContent = medium;
+      document.getElementById('lc-hard-count').textContent = hard;
+
+      const easyTotal = 850, medTotal = 1800, hardTotal = 800;
+      document.getElementById('lc-easy-bar').style.width = Math.min(easy / easyTotal * 100, 100).toFixed(1) + '%';
+      document.getElementById('lc-med-bar').style.width = Math.min(medium / medTotal * 100, 100).toFixed(1) + '%';
+      document.getElementById('lc-hard-bar').style.width = Math.min(hard / hardTotal * 100, 100).toFixed(1) + '%';
+
+      document.getElementById('lc-loading').classList.add('hidden');
+      document.getElementById('lc-data').classList.remove('hidden');
+    }
+
+    async function loadLeetCode() {
+      try {
+        const cached = localStorage.getItem('lc_data');
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Date.now() - parsed.timestamp < CACHE_TTL) {
+            renderLeetCode(parsed.data);
+            return;
+          }
+        }
+
+        const res = await fetch(`https://alfa-leetcode-api.onrender.com/${LC_USER}/solved`);
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+
+        localStorage.setItem('lc_data', JSON.stringify({ timestamp: Date.now(), data }));
+        renderLeetCode(data);
+      } catch {
+        document.getElementById('lc-loading').textContent = 'could not load data - check username.';
+      }
+    }
+
+    // Load when section comes into view
+    const statsSection = document.getElementById('stats');
+    let statsLoaded = false;
+    new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !statsLoaded) {
+        statsLoaded = true;
+        loadGitHub();
+        loadLeetCode();
+      }
+    }, { threshold: 0.1 }).observe(statsSection);
+  </script>
 
 </body>
+
 </html>
