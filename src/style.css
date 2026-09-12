@@ -1,0 +1,380 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Theme tokens ──────────────────────────────────────
+   Light = default (close to white). Dark = close to black.
+   Stored as "R G B" triples so Tailwind's <alpha-value> works. */
+:root {
+  --color-base: 255 255 255;
+  --color-surface: 247 248 250;
+  --color-border: 228 231 236;
+  --color-text: 17 24 39;
+  --color-muted: 100 116 139;
+  --color-accent: 37 99 235;
+  --color-accent2: 217 119 6;
+  --color-faint: 229 231 235;
+}
+
+html.dark {
+  --color-base: 8 9 14;
+  --color-surface: 17 19 27;
+  --color-border: 39 44 61;
+  --color-text: 245 245 247;
+  --color-muted: 148 160 191;
+  --color-accent: 56 189 248;
+  --color-accent2: 232 201 154;
+  --color-faint: 36 41 58;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background-color: rgb(var(--color-base));
+  color: rgb(var(--color-text));
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: rgb(var(--color-accent) / 0.25);
+}
+
+/* Thin, unobtrusive scrollbar so any horizontal overflow never looks broken */
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-border));
+  border-radius: 4px;
+}
+
+/* Cursor blink with color shuffle */
+.cursor::after {
+  content: '|';
+  animation: blink 4s step-end infinite;
+  margin-left: 2px;
+  font-size: 70%;
+}
+
+@keyframes blink {
+  0% { color: #38bdf8; opacity: 1; }
+  12.5% { opacity: 0; }
+  25% { color: #f59e0b; opacity: 1; }
+  37.5% { opacity: 0; }
+  50% { color: #10b981; opacity: 1; }
+  62.5% { opacity: 0; }
+  75% { color: #ec4899; opacity: 1; }
+  87.5% { opacity: 0; }
+}
+
+/* Section / card fade-in on scroll (no scale — just opacity + a small rise) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Thin accent divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(var(--color-border)) 20%, rgb(var(--color-border)) 80%, transparent);
+}
+
+/* Nav active dot */
+.nav-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgb(var(--color-accent));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.nav-item.active .nav-dot {
+  opacity: 1;
+}
+
+.nav-item.active a,
+.nav-item.active button {
+  color: rgb(var(--color-text));
+}
+
+/* Skill chip */
+.skill-chip {
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+
+.skill-chip:hover {
+  border-color: rgb(var(--color-accent) / 0.5);
+  color: rgb(var(--color-text));
+  background: rgb(var(--color-accent) / 0.06);
+}
+
+/* Stat number count-up style */
+.stat-num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* GitHub contribution-bar */
+.contrib-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: rgb(var(--color-faint));
+  overflow: hidden;
+}
+
+.contrib-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgb(var(--color-accent)), rgb(var(--color-accent2)));
+  transition: width 1s ease 0.3s;
+}
+
+/* Timeline track */
+.timeline-track {
+  position: relative;
+}
+
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(180deg, rgb(var(--color-accent)) 0%, rgb(var(--color-border)) 100%);
+}
+
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid rgb(var(--color-accent));
+  background: rgb(var(--color-surface));
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* Navbar blur */
+.navbar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgb(var(--color-base) / 0.75);
+}
+
+/* Scroll indicator */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  z-index: 999;
+  background: linear-gradient(90deg, rgb(var(--color-accent)), rgb(var(--color-accent2)));
+  transition: width 0.1s;
+}
+
+/* Underline link animation — width-based, never shifts surrounding text */
+.link-line {
+  position: relative;
+  display: inline-block;
+}
+
+.link-line::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: rgb(var(--color-accent));
+  transition: width 0.25s ease;
+}
+
+.link-line:hover::after {
+  width: 100%;
+}
+
+/* Contact row hover */
+.contact-row {
+  transition: background 0.2s;
+  border-radius: 8px;
+}
+
+.contact-row:hover {
+  background: rgb(var(--color-surface));
+}
+
+/* Leetcode/GitHub stat card */
+.stat-card {
+  border: 1px solid rgb(var(--color-border));
+  border-radius: 12px;
+  padding: 20px 24px;
+  background: rgb(var(--color-surface));
+}
+
+/* ─── Skeleton loading blocks ────────────────────────── */
+.skeleton {
+  background: rgb(var(--color-faint));
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgb(var(--color-base) / 0.5), transparent);
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ─── Project card ───────────────────────────────────────
+   Lift + border/shadow only — nothing scales, so text and
+   icons never shift relative to the pointer. */
+.project-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-3px);
+  border-color: rgb(var(--color-accent) / 0.45);
+  box-shadow: 0 14px 32px -16px rgb(var(--color-accent) / 0.3);
+}
+
+.project-card .project-image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgb(var(--color-text) / 0);
+  transition: background 0.25s ease;
+}
+
+.project-card:hover .project-image-wrap::after,
+.project-card:focus-within .project-image-wrap::after {
+  background: rgb(var(--color-text) / 0.04);
+}
+
+.project-tag {
+  background: rgb(var(--color-accent) / 0.08);
+  border: 1px solid rgb(var(--color-accent) / 0.18);
+  color: rgb(var(--color-accent));
+}
+
+.project-link-chip {
+  border: 1px solid rgb(var(--color-border));
+  color: rgb(var(--color-muted));
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.project-link-chip:hover {
+  border-color: rgb(var(--color-accent));
+  color: rgb(var(--color-accent));
+  background: rgb(var(--color-accent) / 0.06);
+}
+
+/* Arrow nudges right on hover — an icon moving, never the text block itself */
+.arrow-nudge {
+  transition: transform 0.2s ease;
+}
+
+a:hover .arrow-nudge,
+button:hover .arrow-nudge {
+  transform: translateX(3px);
+}
+
+/* Theme toggle / icon buttons: color + tint background, never scale */
+.theme-toggle,
+.icon-btn {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover,
+.icon-btn:hover {
+  border-color: rgb(var(--color-accent));
+  color: rgb(var(--color-accent));
+  background: rgb(var(--color-accent) / 0.08);
+}
+
+/* Copy button feedback */
+.copy-btn {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Status pill pulsing dot */
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  position: relative;
+}
+
+.status-dot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* Gentle scroll cue at the bottom of the hero */
+.scroll-cue {
+  animation: cue-bounce 2.2s ease-in-out infinite;
+}
+
+@keyframes cue-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* Slow-rotating decorative ring behind the hero photo */
+.hero-ring {
+  animation: ring-spin 18s linear infinite;
+}
+
+@keyframes ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Mobile nav panel */
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
