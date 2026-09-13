@@ -51,4 +51,17 @@ export const projects = [
       live: 'https://kings-messenger.vercel.app',
     },
   },
+  {
+    id: 'track-plate',
+    title: 'Track Plate',
+    description:
+      'A mobile-first calorie & nutrition tracker. Log food by typing or photo, watch an "AI" reply with the calorie/macro breakdown ',
+    image: '/images/track-plate.png',
+    tags: ['Vue.js', 'Node.js', 'Gemini API', 'PostgreSQL'],
+    links: {
+      frontend: 'https://github.com/shrvn12/calorie_tracker_frontend',
+      backend: 'https://github.com/shrvn12/calorie_tracker_backend',
+      live: 'https://track-plate.vercel.app',
+    },
+  }
 ]
