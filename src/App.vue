@@ -2,6 +2,7 @@
 import NavBar from './components/NavBar.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import ScrollProgress from './components/ScrollProgress.vue'
+import SiteHorizon from './components/SiteHorizon.vue'
 </script>
 
 <template>
@@ -11,4 +12,5 @@ import ScrollProgress from './components/ScrollProgress.vue'
     <router-view />
   </main>
   <SiteFooter />
+  <SiteHorizon />
 </template>
